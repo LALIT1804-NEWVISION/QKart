@@ -1,0 +1,12 @@
+{
+  "baseUrl": "https://crio-qkart-frontend-qa.vercel.app/",
+  "generatedUserData": [
+    {
+      "firstName": "Jhon",
+      "lastName": "mark",
+      "email": "eliseo.pfeffer45773@gmail.com",
+      "password": "Test@45773",
+      "confirmpassword": "Test@45773"
+    }
+  ]
+}
