@@ -1,6 +1,6 @@
 import {Page, expect} from "@playwright/test";
-import {loginPages} from "../pages/loginPage";
-import loginData from "../testdata/login.json";
+import {loginPages} from "../../pages/loginPage/loginPage";
+import loginData from "../../testdata/login.json";
 
 
 type LoginDetails = 

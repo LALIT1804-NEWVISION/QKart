@@ -1,1 +1,1 @@
-{"uid":"b1a8273437954620fa374b796ffaacdd","name":"behaviors","children":[]}
+{"uid":"b1a8273437954620fa374b796ffaacdd","name":"behaviors","children":[{"name":"Verify that a user can log in with a valid username and password","uid":"677375f6d38b029","parentUid":"b1a8273437954620fa374b796ffaacdd","status":"passed","time":{"start":1781243201066,"stop":1781243205747,"duration":4681},"flaky":false,"newFailed":false,"newPassed":false,"newBroken":false,"retriesCount":0,"retriesStatusChange":false,"parameters":["chromium"],"tags":[]}]}
