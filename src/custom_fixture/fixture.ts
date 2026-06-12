@@ -1,9 +1,11 @@
 import { test as base, expect } from "@playwright/test";
+import { RegisterationAction } from "../actions/registrationAction";
 import { loginAction } from "../actions/loginAction";
 import loginData from "../testdata/login.json";
 
 type appActions = {
-    login: loginAction;
+    registeration : RegisterationAction
+    login: loginAction; 
 };
 
 type Fixtures = {
