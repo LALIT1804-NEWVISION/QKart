@@ -18,7 +18,7 @@ export class loginAction
         this.loginPage = new loginPages(page);
     }
 
-    async loginUser( loginData: LoginDetails)
+    async loginUser(loginData: LoginDetails)
     {
         // click the login link
         await this.loginPage.loginLink.click();
@@ -34,5 +34,6 @@ export class loginAction
         await expect(this.loginPage.loginValidation).toBeVisible();
         // verify user credential should be correct
         await expect(this.loginPage.userCredentialValidation).toBeVisible();
-    }
+
+        }
 }
