@@ -18,7 +18,7 @@ export class RegisterationPage {
     this.password = page.getByPlaceholder('Enter a password with minimum 6 characters');
     this.confirmPassword = page.getByPlaceholder('Re-enter your password to confirm');
     this.registerNowButton = page.getByRole('button', { name: 'Register Now' });
-    this.errorMessage = page.locator('.error');
-    this.successMessage = page.locator('.result');
+    this.errorMessage = page.locator('//div[@id="notistack-snackbar"]');
+    this.successMessage = page.locator('//div[@id="notistack-snackbar"]');
   }
 }
