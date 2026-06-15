@@ -1,4 +1,4 @@
-import { test } from "../../../src/custom_fixture/fixture";
+import { expect, test } from "../../../src/custom_fixture/fixture";
 import loginData from "../../../src/testdata/login.json";
 
 
@@ -43,3 +43,21 @@ test("TC_06 Verify logout functionality", async ({appAction}) => {
     // User Should login with valid credential and Validate the login successfully
     await appAction.login.logoutValidation(loginData.LoginDetails);
 })
+
+test("TC_07 Verify the login after refersh",async({appAction,page})=>{
+    //Verify that the user can log in successfully with valid credentials and remains logged in after refreshing the page
+     await appAction.login.loginUser(loginData.LoginDetails);
+     await page.reload();
+     await appAction.login.validogoutLogo();
+
+})
+
+test("TC_08 Verify Product After Logout ",async({appAction})=>{
+    //Verify that the user can log in successfully with valid credentials and remains logged in after refreshing the page
+     await appAction.login.verifyProductAfterLogout(loginData.AddtoCart.username,loginData.AddtoCart.password);
+})
+
+test("TC_09 Verify login with leading spaces in username and password",async ({appAction})=>{
+await appAction.login.loginSpaceUser(loginData.SpaceCredentials)
+})
+

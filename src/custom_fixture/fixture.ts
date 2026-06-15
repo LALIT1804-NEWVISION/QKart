@@ -1,17 +1,18 @@
-import { test as base, expect } from "@playwright/test";
-import { loginAction } from "../actions/loginAction/loginAction";
-import loginData from "../testdata/login.json";
+import { test as base, expect, Page } from '@playwright/test';
 import { RegisterationAction } from '../actions/RegistrationAction/registrationAction';
 import RegisterationData from "../testdata/registrationData.json";
- 
-type appActions = {
+import loginData from '../testdata/login.json';
+import { loginAction } from '../actions/loginAction/loginAction';
+
+type AppActions = {
     register: RegisterationAction;
     login: loginAction;
+
 };
- 
+
 type Fixtures = {
     gotoBaseUrl: void;
-    appAction: appActions;
+    appAction: AppActions;
 };
 
 export const test = base.extend<Fixtures>({
@@ -25,8 +26,8 @@ export const test = base.extend<Fixtures>({
     ],
 
     appAction: async ({ page }, use) => {
-        const appAction: appActions = {
-            register: new RegisterationAction(page), 
+        const appAction: AppActions = {
+            register: new RegisterationAction(page),
             login: new loginAction(page),
         };
         await use(appAction);
