@@ -1,9 +1,12 @@
 import { test as base, expect, Page } from '@playwright/test';
 import { RegisterationAction } from '../actions/RegistrationAction/registrationAction';
+import { ProductAction } from '../actions/ProductListing/productAction';
 import RegisterationData from "../testdata/registrationData.json";
+
 
 type AppActions = {
     register: RegisterationAction;
+    product: ProductAction;
 
 };
 
@@ -25,6 +28,7 @@ export const test = base.extend<Fixtures>({
     appAction: async ({ page }, use) => {
         const appAction: AppActions = {
             register: new RegisterationAction(page), 
+            product: new ProductAction(page),
         };
         await use(appAction);
     },
