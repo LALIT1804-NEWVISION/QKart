@@ -1,8 +1,14 @@
-import { test as base, expect, Page } from '@playwright/test';
+import { test as base, expect } from "@playwright/test";
+import { loginAction } from "../actions/loginAction/loginAction";
+import loginData from "../testdata/login.json";
+import { FooterAction } from "../actions/footerAction/footerAction";
 import { RegisterationAction } from '../actions/RegistrationAction/registrationAction';
 import RegisterationData from "../testdata/registrationData.json";
 
+ 
 type AppActions = {
+    login: loginAction;
+    footer: FooterAction;
     register: RegisterationAction;
 
 };
@@ -23,8 +29,11 @@ export const test = base.extend<Fixtures>({
     ],
 
     appAction: async ({ page }, use) => {
+        
         const appAction: AppActions = {
-            register: new RegisterationAction(page), 
+            login: new loginAction(page),
+            register: new RegisterationAction(page),
+            footer: new FooterAction(page),
         };
         await use(appAction);
     },

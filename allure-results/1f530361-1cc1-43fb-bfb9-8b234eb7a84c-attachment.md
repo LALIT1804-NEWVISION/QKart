@@ -1,0 +1,659 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: footerTest\footerTest.spec.ts >> QKart Footer Links Validation >> TC_004 Verify that the About Us link displayed in the footer section of the Home Page opens in a new browser tab and navigates successfully
+- Location: tests\footerTest\footerTest.spec.ts:62:9
+
+# Error details
+
+```
+Test timeout of 30000ms exceeded while setting up "appAction".
+```
+
+```
+Error: page.goto: Test timeout of 30000ms exceeded.
+Call log:
+  - navigating to "https://crio-qkart-frontend-qa.vercel.app/", waiting until "load"
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e4]:
+  - generic [ref=e5]:
+    - generic:
+      - link "QKart-icon":
+        - /url: /
+        - img "QKart-icon"
+    - generic [ref=e7]:
+      - textbox "Search for items/categories" [ref=e8]
+      - img [ref=e10]
+      - group
+    - generic [ref=e12]:
+      - button "Login" [ref=e13] [cursor=pointer]: Login
+      - button "Register" [ref=e14] [cursor=pointer]: Register
+  - generic [ref=e16]:
+    - paragraph [ref=e18]: India’ s FASTEST DELIVERY to your door step
+    - generic [ref=e19]:
+      - generic [ref=e21]:
+        - img "Stylecon 9 Seater RHS Sofa Set" [ref=e22]
+        - generic [ref=e23]:
+          - paragraph [ref=e24]: Stylecon 9 Seater RHS Sofa Set
+          - paragraph [ref=e25]: $650
+          - img "3 Stars":
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+        - button "Add to cart" [ref=e27] [cursor=pointer]:
+          - img [ref=e29]
+          - text: Add to cart
+      - generic [ref=e32]:
+        - img "Thinking, Fast and Slow" [ref=e33]
+        - generic [ref=e34]:
+          - paragraph [ref=e35]: Thinking, Fast and Slow
+          - paragraph [ref=e36]: $15
+          - img "5 Stars":
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+        - button "Add to cart" [ref=e38] [cursor=pointer]:
+          - img [ref=e40]
+          - text: Add to cart
+      - generic [ref=e43]:
+        - img "YONEX Smash Badminton Racquet" [ref=e44]
+        - generic [ref=e45]:
+          - paragraph [ref=e46]: YONEX Smash Badminton Racquet
+          - paragraph [ref=e47]: $100
+          - img "5 Stars":
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+        - button "Add to cart" [ref=e49] [cursor=pointer]:
+          - img [ref=e51]
+          - text: Add to cart
+      - generic [ref=e54]:
+        - img "Roadster Mens Running Shoes" [ref=e55]
+        - generic [ref=e56]:
+          - paragraph [ref=e57]: Roadster Mens Running Shoes
+          - paragraph [ref=e58]: $30
+          - img "5 Stars":
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+          - button "Size chart" [ref=e59] [cursor=pointer]: Size chart
+        - generic [ref=e60]:
+          - generic [ref=e61]:
+            - generic [ref=e62]: Size
+            - generic [ref=e63]:
+              - combobox "Size Size" [ref=e64] [cursor=pointer]:
+                - option "6" [selected]
+                - option "7"
+                - option "8"
+                - option "9"
+                - option "10"
+              - img
+          - button "Add to cart" [ref=e65] [cursor=pointer]:
+            - img [ref=e67]
+            - text: Add to cart
+      - generic [ref=e70]:
+        - img "Nike Mens Running Shoes" [ref=e71]
+        - generic [ref=e72]:
+          - paragraph [ref=e73]: Nike Mens Running Shoes
+          - paragraph [ref=e74]: $80
+          - img "5 Stars":
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+          - button "Size chart" [ref=e75] [cursor=pointer]: Size chart
+        - generic [ref=e76]:
+          - generic [ref=e77]:
+            - generic [ref=e78]: Size
+            - generic [ref=e79]:
+              - combobox [ref=e80] [cursor=pointer]:
+                - option "6" [selected]
+                - option "7"
+                - option "8"
+                - option "9"
+                - option "10"
+              - img
+          - button "Add to cart" [ref=e81] [cursor=pointer]:
+            - img [ref=e83]
+            - text: Add to cart
+      - generic [ref=e86]:
+        - img "Tan Leatherette Weekender Duffle" [ref=e87]
+        - generic [ref=e88]:
+          - paragraph [ref=e89]: Tan Leatherette Weekender Duffle
+          - paragraph [ref=e90]: $150
+          - img "4 Stars":
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+        - button "Add to cart" [ref=e92] [cursor=pointer]:
+          - img [ref=e94]
+          - text: Add to cart
+      - generic [ref=e97]:
+        - img "Yarine Floor Lamp" [ref=e98]
+        - generic [ref=e99]:
+          - paragraph [ref=e100]: Yarine Floor Lamp
+          - paragraph [ref=e101]: $30
+          - img "5 Stars":
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+        - button "Add to cart" [ref=e103] [cursor=pointer]:
+          - img [ref=e105]
+          - text: Add to cart
+      - generic [ref=e108]:
+        - img "Xtend Smart Watch" [ref=e109]
+        - generic [ref=e110]:
+          - paragraph [ref=e111]: Xtend Smart Watch
+          - paragraph [ref=e112]: $30
+          - img "5 Stars":
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+        - button "Add to cart" [ref=e114] [cursor=pointer]:
+          - img [ref=e116]
+          - text: Add to cart
+      - generic [ref=e119]:
+        - img "Plastic Balls" [ref=e120]
+        - generic [ref=e121]:
+          - paragraph [ref=e122]: Plastic Balls
+          - paragraph [ref=e123]: $30
+          - img "3 Stars":
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+        - button "Add to cart" [ref=e125] [cursor=pointer]:
+          - img [ref=e127]
+          - text: Add to cart
+      - generic [ref=e130]:
+        - img "Kindle" [ref=e131]
+        - generic [ref=e132]:
+          - paragraph [ref=e133]: Kindle
+          - paragraph [ref=e134]: $30
+          - img "5 Stars":
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+        - button "Add to cart" [ref=e136] [cursor=pointer]:
+          - img [ref=e138]
+          - text: Add to cart
+      - generic [ref=e141]:
+        - img "Connector" [ref=e142]
+        - generic [ref=e143]:
+          - paragraph [ref=e144]: Connector
+          - paragraph [ref=e145]: $80
+          - img "5 Stars":
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+        - button "Add to cart" [ref=e147] [cursor=pointer]:
+          - img [ref=e149]
+          - text: Add to cart
+      - generic [ref=e152]:
+        - img "Jenga" [ref=e153]
+        - generic [ref=e154]:
+          - paragraph [ref=e155]: Jenga
+          - paragraph [ref=e156]: $120
+          - img "5 Stars":
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+        - button "Add to cart" [ref=e158] [cursor=pointer]:
+          - img [ref=e160]
+          - text: Add to cart
+  - navigation "pagination navigation" [ref=e163]:
+    - list [ref=e164]:
+      - listitem [ref=e165]:
+        - button "Go to previous page" [disabled]:
+          - img
+      - listitem [ref=e166]:
+        - button "page 1" [ref=e167] [cursor=pointer]: "1"
+      - listitem [ref=e168]:
+        - button "Go to page 2" [ref=e169] [cursor=pointer]: "2"
+      - listitem [ref=e170]:
+        - button "Go to next page" [ref=e171] [cursor=pointer]:
+          - img [ref=e172]
+  - generic [ref=e174]:
+    - generic:
+      - img "QKart-icon"
+    - paragraph [ref=e175]: QKart is your one stop solution to the buy the latest trending items with India 's Fastest Delivery to your doorstep
+    - generic [ref=e176]:
+      - paragraph [ref=e177] [cursor=pointer]:
+        - link "Privacy policy" [ref=e178]:
+          - /url: privacy-policy
+      - paragraph [ref=e179] [cursor=pointer]:
+        - link "About us" [ref=e180]:
+          - /url: aboutus
+      - paragraph [ref=e181] [cursor=pointer]: Contact us
+      - paragraph [ref=e182] [cursor=pointer]:
+        - link "Terms of Service" [ref=e183]:
+          - /url: terms-of-service
+```
+
+# Test source
+
+```ts
+  1  | import { test as base, expect } from "@playwright/test";
+  2  | import { loginAction } from "../actions/loginAction/loginAction.ts";
+  3  | import loginData from "../testdata/login.json";
+  4  | import { FooterAction } from "../actions/footerAction/footerAction.ts";
+  5  |  
+  6  | type appActions = {
+  7  |     login: loginAction;
+  8  |     footer: FooterAction;
+  9  | };
+  10 |  
+  11 | type Fixtures = {
+  12 |     appAction: appActions;
+  13 | };
+  14 |  
+  15 | export const test = base.extend<Fixtures>({
+  16 |     appAction: async ({ page }, use) => {
+  17 |        
+  18 |         // Navigate BEFORE using actions
+> 19 |         await page.goto(loginData.BaseURL);
+     |                    ^ Error: page.goto: Test timeout of 30000ms exceeded.
+  20 |  
+  21 |         const appAction: appActions = {
+  22 |             login: new loginAction(page),
+  23 |             footer: new FooterAction(page)
+  24 |         };
+  25 |  
+  26 |         await use(appAction);
+  27 |     }
+  28 | });
+  29 |  
+  30 | export { expect };
+```
