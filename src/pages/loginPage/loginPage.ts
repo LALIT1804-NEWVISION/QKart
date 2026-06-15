@@ -10,6 +10,7 @@ export class loginPages
     readonly button: Locator;
     readonly loginValidation: Locator;
     readonly userCredentialValidation: Locator;
+    readonly qkartLogo: Locator;
 
 
     constructor(page: Page)
@@ -22,6 +23,7 @@ export class loginPages
         this.button = page.locator('//button[contains(text(), "Login to QKart")]')
         this.loginValidation = page.locator('//div[contains(@id, "notistack-snackbar")]')
         this.userCredentialValidation = page.locator('//p[contains(text(), "Dummy123")]')
+        this.qkartLogo = page.getByRole('img', { name: /qkart/i }).first();
 
     }
 }
