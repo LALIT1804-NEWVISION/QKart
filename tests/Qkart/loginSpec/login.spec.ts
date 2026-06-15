@@ -5,14 +5,18 @@ import loginData from "../../../src/testdata/login.json";
 test("TC_01 Verify that a user can log in with a valid username and password", async({appAction}) => 
     {
         // User Should login with valid credential and Validate the login successfully
+        console.log("login data is:", loginData.LoginDetails);
         await appAction.login.loginUser(loginData.LoginDetails);
+        
     }
 );
 
 test("TC_02 Verify login with an invalid username", async({appAction}) => 
     {
         // User Should login with invalid username and Validate the error message
+        console.log("Invalid username:", loginData.incorrectLoginDetails);
         await appAction.login.loginWithInvalidUsername(loginData.incorrectLoginDetails);
+        
     }
 );
 
@@ -39,6 +43,7 @@ test("TC_06 Verify logout functionality", async ({appAction}) => {
     // User Should login with valid credential and Validate the login successfully
     await appAction.login.logoutValidation(loginData.LoginDetails);
 })
+
 test("TC_07 Verify the login after refersh",async({appAction,page})=>{
     //Verify that the user can log in successfully with valid credentials and remains logged in after refreshing the page
      await appAction.login.loginUser(loginData.LoginDetails);

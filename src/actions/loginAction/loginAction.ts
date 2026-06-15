@@ -1,20 +1,17 @@
 import {Page, expect} from "@playwright/test";
 import {loginPages} from "../../pages/loginPage/loginPage";
-import loginData from "../../testdata/login.json";
 
 
 type LoginDetails = 
 {
     Username : string,
-    Password : string;
-    
+    Password : string;   
 }
 
 type incorrectLoginDetails = 
 {
     Username : string,
-    Password : string;
-    
+    Password : string;   
 }
 
 type incorrectPassword = 
@@ -43,7 +40,7 @@ export class loginAction
         this.loginPage = new loginPages(page);
     }
 
-    async loginUser(loginData: LoginDetails)
+    async loginUser(loginData : LoginDetails)
     {
         // click the login link
         await this.loginPage.loginLink.click();
@@ -60,7 +57,7 @@ export class loginAction
         // verify user should login successfully
         await expect(this.loginPage.loginValidation).toBeVisible();
         // verify user credential should be correct
-        await expect(this.loginPage.userCredentialValidation).toBeVisible();
+        await expect(this.loginPage.userCredentialValidation).toBeVisible();   
 
     }
 
@@ -95,6 +92,7 @@ export class loginAction
         await expect(this.loginPage.errorMessageIncorrectPassword).toBeVisible();
          
     }
+
 
     async loginWithBlankUsername(loginData:blankUsername)
         {
