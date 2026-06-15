@@ -1,0 +1,16 @@
+ 
+ {
+    "SearchDetails":{
+     "searchbox" : "Shoes",
+     "searchPartialText":" Sh",
+     "searchinvalidproduct": "44",
+    "searchproductspeccharacters":"%",
+    "searchproductwithlonginput": "Shoessssssssssssssssssssssssssss",
+    "searchproductwithnumbersonly": "1234",
+    "searchproductwithvcasesensitive": "SHOeS",
+    "searchproductwithtrailingspaces":"Shoes            "
+ }
+}
+
+
+

@@ -1,34 +1,32 @@
-import { test as base, expect, Page } from '@playwright/test';
-import { RegisterationAction } from '../actions/RegistrationAction/registrationAction';
-import RegisterationData from "../testdata/registrationData.json";
 
-type AppActions = {
-    register: RegisterationAction;
-
+import { test as base, expect } from "@playwright/test";
+import { loginAction } from "../actions/loginAction/loginAction";
+import loginData from "../testdata/login.json";
+import {SearchAction} from "../actions/searchAction/searchAction"
+import searchdata from "../testdata/search.json";
+ 
+type appActions = {
+    search: SearchAction;
+    login: loginAction;
 };
-
+ 
 type Fixtures = {
-    gotoBaseUrl: void;
-    appAction: AppActions;
+    appAction: appActions;
 };
-
+ 
 export const test = base.extend<Fixtures>({
-    gotoBaseUrl: [
-        async ({ page }, use) => {
-            await page.goto(RegisterationData.baseUrl);
-            await expect(page).toHaveURL(RegisterationData.baseUrl);
-            await use();
-        },
-        { auto: true },
-    ],
-
     appAction: async ({ page }, use) => {
-        const appAction: AppActions = {
-            register: new RegisterationAction(page), 
+       
+        // Navigate BEFORE using actions
+        await page.goto(loginData.BaseURL);
+ 
+        const appAction: appActions = {
+            login: new loginAction(page),
+            search : new SearchAction(page)
         };
+ 
         await use(appAction);
-    },
+    }
 });
-
-export { expect } from "@playwright/test";
-
+ 
+export { expect };
