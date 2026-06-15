@@ -1,30 +1,37 @@
-import { test as base, expect } from "@playwright/test";
-import { loginAction } from "../actions/loginAction/loginAction.ts";
-import loginData from "../testdata/login.json";
-import { CartAction } from "../actions/cartAction/cartAction.ts";
- 
-type appActions = {
-    login: loginAction;
+import { test as base, expect, Page } from '@playwright/test';
+import { RegisterationAction } from '../actions/RegistrationAction/registrationAction';
+import RegisterationData from "../testdata/registrationData.json";
+import { CartAction } from '../actions/cartAction/cartAction';
+
+type AppActions = {
+    register: RegisterationAction;
     cart: CartAction;
+
 };
- 
+
 type Fixtures = {
-    appAction: appActions;
+    gotoBaseUrl: void;
+    appAction: AppActions;
 };
- 
+
 export const test = base.extend<Fixtures>({
+    gotoBaseUrl: [
+        async ({ page }, use) => {
+            await page.goto(RegisterationData.baseUrl);
+            await expect(page).toHaveURL(RegisterationData.baseUrl);
+            await use();
+        },
+        { auto: true },
+    ],
+
     appAction: async ({ page }, use) => {
-       
-        // Navigate BEFORE using actions
-        await page.goto(loginData.BaseURL);
- 
-        const appAction: appActions = {
-            login: new loginAction(page),
-            cart: new CartAction(page)
+        const appAction: AppActions = {
+            register: new RegisterationAction(page), 
+            cart: new CartAction(page),
         };
- 
         await use(appAction);
-    }
+    },
 });
- 
-export { expect };
+
+export { expect } from "@playwright/test";
+
