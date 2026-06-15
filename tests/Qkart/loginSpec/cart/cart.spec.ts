@@ -21,12 +21,12 @@ test("testcases 03:Increase product quantity", async ({ appAction }) => {
     await appAction.cart.verifyItemQuantity(0, 2);
 });
 
-test("testcases 04: Add Same Item again", async ({ appAction, page }) => {
+test("testcases 04: Add Same Item again", async ({ appAction }) => {
     await appAction.login.loginUser(loginData.LoginDetails);
 
     await appAction.cart.addItemsToCart();
 
-    await page.waitForLoadState('networkidle');
+    await appAction.cart.page.waitForLoadState('networkidle');
 
     await appAction.cart.addItemsToCart();
 
