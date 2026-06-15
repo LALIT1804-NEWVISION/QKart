@@ -1,9 +1,11 @@
 import { test as base, expect } from "@playwright/test";
 import { loginAction } from "../actions/loginAction";
 import loginData from "../testdata/login.json";
+import { CheckoutAction} from "../actions/checkoutAction";
 
 type appActions = {
     login: loginAction;
+checkout: CheckoutAction;
 };
 
 type Fixtures = {
@@ -17,7 +19,8 @@ export const test = base.extend<Fixtures>({
         await page.goto(loginData.BaseURL);
 
         const appAction: appActions = {
-            login: new loginAction(page)
+            login: new loginAction(page),
+            checkout:new CheckoutAction(page)
         };
 
         await use(appAction);
