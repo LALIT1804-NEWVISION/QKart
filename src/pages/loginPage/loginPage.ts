@@ -18,6 +18,10 @@ export class loginPages
     readonly errorMessageBlankPassword: Locator;
     readonly logoutButton: Locator;
 
+    //Add to cart
+    readonly firstProduct:Locator;
+    readonly Ordertotal:Locator
+
 
 
     constructor(page: Page)
@@ -37,6 +41,10 @@ export class loginPages
         this.errorMessageBlankUsername = page.locator('//div[contains(text() , "Username is a required field")]')
         this.errorMessageBlankPassword = page.locator('//div[contains(text() , "Password is a required field")]')
         this.logoutButton = page.locator('//button[contains(text() , "Logout")]')
+       // Add to cart 
+        this.firstProduct=page.getByRole('button',{name:'Add to cart'})
+        this.Ordertotal=page.locator("//div[text()='Order total']")
+
 
     }
 }
