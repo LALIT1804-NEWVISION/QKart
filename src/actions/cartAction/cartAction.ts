@@ -14,8 +14,28 @@ export class CartAction {
     async addItemsToCart() {
         await expect(this.cartPage.shoesItem).toBeVisible();
         await this.cartPage.shoesItem.click();
+
+    }
+    async clickCartButton() {
+        await expect(this.cartPage.cartButton).toBeVisible();
+        await this.cartPage.cartButton.click();
+    }
+    async IncreaseProductQuantity(itemIndex: number = 0) {
+        const buttons = await this.cartPage.IncreaseQuantityButton.all();
+        if (buttons.length > itemIndex) {
+            await expect(buttons[itemIndex]).toBeVisible();
+            await buttons[itemIndex].click();
+        }
     }
 
+    async getQuantity() {
+        return await this.page.locator('[data-testid="item-qty"]').first().textContent();
+    }
+
+    async getOrderTotal() {
+        // Get the order total from the cart sidebar
+        return await this.cartPage.cartTotal.textContent();
+    }
     async addBadmintonItemToCart() {
         await expect(this.cartPage.BadmintonItem).toBeVisible();
         await this.cartPage.BadmintonItem.click();
@@ -29,7 +49,7 @@ export class CartAction {
     async verifyItemAlreadyInCartMessage() {
         // Wait for cart to update after adding item
         await this.page.waitForTimeout(500);
-        
+
         // Verify item appears in cart by checking for the price display
         const priceInCart = this.page.locator('//*[contains(text(), "$")]').first();
         await expect(priceInCart).toBeVisible();
@@ -45,7 +65,7 @@ export class CartAction {
         const buttons = await this.cartPage.quantityDecreaseButton.all();
         if (buttons.length > itemIndex) {
             await buttons[itemIndex].click();
-            await this.page.waitForLoadState('networkidle');
+            await this.page.waitForTimeout(500);
         }
     }
 
@@ -70,13 +90,13 @@ export class CartAction {
     async refreshBrowserAndVerifyCartPersists() {
         await this.page.reload();
         await this.page.waitForLoadState('networkidle');
-        await this.navigateToCheckout();
+        // await this.navigateToCheckout();
     }
-
     async verifyEmptyCartMessage() {
-        await expect(this.cartPage.emptyCartMessage).toBeVisible();
+        await expect(
+            this.page.getByText('Cart is empty. Add more items to the cart to checkout.')
+        ).toBeVisible();
     }
-
     async verifyLoginPromptMessage() {
         await expect(this.cartPage.loginPromptMessage).toBeVisible();
     }
@@ -127,4 +147,5 @@ export class CartAction {
         } catch (e) {
             return null;
         }
-    }}
+    }
+}
