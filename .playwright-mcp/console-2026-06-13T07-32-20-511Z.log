@@ -1,0 +1,3 @@
+[  -11489ms] [ERROR] Refused to execute script from 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' because its MIME type ('text/css') is not executable, and strict MIME type checking is enabled. @ https://crio-qkart-frontend-qa.vercel.app/checkout:0
+[      37ms] [LOG] Price structure: [Object, Object, Object] @ :20
+[      39ms] [LOG] XPath test results: 0 @ :31
