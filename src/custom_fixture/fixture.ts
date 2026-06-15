@@ -1,5 +1,5 @@
 import { test as base, expect } from "@playwright/test";
-import { loginAction } from "../actions/loginAction/loginAction.ts";
+import { loginAction } from "../actions/loginAction/loginAction";
 import loginData from "../testdata/login.json";
  
 type appActions = {
@@ -25,3 +25,4 @@ export const test = base.extend<Fixtures>({
 });
  
 export { expect };
+ 

@@ -24,6 +24,15 @@
         "Username" : "Dummy123",
         "Password" : ""
 
-    }
+    },
+    "AddtoCart" :{
+     "username": "Admin-nvs",
+     "password": "adminnvs"
+    },
+    "SpaceCredentials"
+   : {
+  "Username": " qwe321",
+  "Password": " qwe@321"
+}
 
 }

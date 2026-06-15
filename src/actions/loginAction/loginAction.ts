@@ -157,4 +157,50 @@ export class loginAction
         await expect(this.loginPage.loginLink).toBeVisible();
 
     }   
+    //validLogout
+       async validogoutLogo(){
+           await expect(this.loginPage.logoutButton).toBeVisible();
+       }
+
+    //Add to cart
+    async verifyProductAfterLogout(username :string,password:string){
+        await this.loginPage.loginLink.click();
+        await this.loginPage.page.waitForLoadState('networkidle');
+        //verify Login Page Title
+        await expect(this.loginPage.title).toBeVisible();
+        // Provide Valid login Credential
+        await this.loginPage.username.fill(username);
+        await this.loginPage.passwrod.fill(password);
+        // Verify Login Button should be enabled after providing valid credential
+        await expect(this.loginPage.button).toBeEnabled();
+        await this.loginPage.button.click();
+        await this.loginPage.firstProduct.first().click()
+        await expect(this.loginPage.Ordertotal).toBeVisible()
+        await this.loginPage.logoutButton.click()
+        await this.loginPage.loginLink.click()
+        await this.loginPage.username.fill(username);
+        await this.loginPage.passwrod.fill(password);
+         await this.loginPage.button.click();
+        await expect(this.loginPage.Ordertotal).toBeVisible()
+    }   
+    //spacevalid
+       async loginSpaceUser(loginData: LoginDetails)
+    {
+        // click the login link
+        await this.loginPage.loginLink.click();
+        await this.loginPage.page.waitForLoadState('networkidle');
+        //verify Login Page Title
+        await expect(this.loginPage.title).toBeVisible();
+        // Provide Valid login Credential
+        await this.loginPage.username.fill(loginData.Username);
+        await this.loginPage.passwrod.fill(loginData.Password);
+        // Verify Login Button should be enabled after providing valid credential
+        await expect(this.loginPage.button).toBeEnabled();
+        await this.loginPage.button.click();
+
+        // verify user should login successfully
+        await expect(this.loginPage.loginValidation).toBeVisible();
+     
+
+    }
 }
