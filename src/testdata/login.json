@@ -9,6 +9,21 @@
         "Username" : "Dummy124",
         "Password" : "Dummy@123"
 
+    },
+    "incorrectPassword" : {
+        "Username" : "Dummy123",
+        "Password" : "Dummy@124"
+
+    },
+    "blankUsername" : {
+        "Username" : "",
+        "Password" : "Dummy@123"
+
+    },
+    "blankPassword" : {
+        "Username" : "Dummy123",
+        "Password" : ""
+
     }
 
 }
