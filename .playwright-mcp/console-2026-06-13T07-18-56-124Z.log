@@ -1,0 +1,6 @@
+[  -26444ms] [ERROR] Refused to execute script from 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' because its MIME type ('text/css') is not executable, and strict MIME type checking is enabled. @ https://crio-qkart-frontend-qa.vercel.app/checkout:0
+[   20551ms] [LOG] Total label element: <p>Total</p> @ :9
+[   20551ms] [LOG] Total container: <div class="cart-row MuiBox-root css-1suk1xd"><p>Total</p><p>$780</p></div> @ :13
+[   20552ms] [LOG] Amount element: $780 @ :17
+[   32909ms] [LOG] Price elements: [Object, Object, Object] @ :6
+[   32909ms] [LOG] Total parent HTML: <div class="cart-row MuiBox-root css-1suk1xd"><p>Total</p><p>$780</p></div> @ :20

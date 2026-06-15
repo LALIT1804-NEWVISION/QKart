@@ -5,11 +5,12 @@ import { FooterAction } from "../actions/footerAction/footerAction";
 import { RegisterationAction } from '../actions/RegistrationAction/registrationAction';
 import RegisterationData from "../testdata/registrationData.json";
 
- 
 type AppActions = {
     login: loginAction;
     footer: FooterAction;
     register: RegisterationAction;
+    cart: CartAction;
+    login: loginAction;
 
 };
 
@@ -31,9 +32,7 @@ export const test = base.extend<Fixtures>({
     appAction: async ({ page }, use) => {
         
         const appAction: AppActions = {
-            login: new loginAction(page),
-            register: new RegisterationAction(page),
-            footer: new FooterAction(page),
+            register: new RegisterationAction(page), 
         };
         await use(appAction);
     },
