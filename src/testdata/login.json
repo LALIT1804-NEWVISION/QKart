@@ -1,10 +1,35 @@
 {
     "BaseURL": "https://crio-qkart-frontend-qa.vercel.app",
-    "HomeURL": "https://crio-qkart-frontend-qa.vercel.app/",
+    "HomeURL": "https://crio-qkart-frontend-qa.vercel.app",
 
     "LoginDetails": {
         "Username": "Dummy123",
         "Password": "Dummy@123"
+    },
+
+    "incorrectPassword" : {
+        "Username" : "Dummy123",
+        "Password" : "Dummy@124"
+
+    },
+    "blankUsername" : {
+        "Username" : "",
+        "Password" : "Dummy@123"
+
+    },
+    "blankPassword" : {
+        "Username" : "Dummy123",
+        "Password" : ""
+
+    },
+    "AddtoCart" :{
+     "username": "Admin-nvs",
+     "password": "adminnvs"
+    },
+    
+    "SpaceCredentials": {
+    "Username": " qwe321",
+  "Password": " qwe@321"
     },
 
     "incorrectLoginDetails": {

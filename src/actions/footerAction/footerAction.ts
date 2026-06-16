@@ -1,6 +1,7 @@
 import { expect, Page } from "@playwright/test";
 import { FooterPage } from "../../pages/footerPage/footerPage";
 import loginData from "../../testdata/login.json";
+import {loginAction} from "../loginAction/loginAction";
 
 export class FooterAction {
 
