@@ -75,5 +75,53 @@ export class ProductAction {
         await expect(this.productPage.productGrid).toHaveScreenshot('product-grid-layout.png');
     }
 
-    
+     // Arvind Work
+    async verifyLayoutImageVisible(): Promise<void> {
+    await expect(this.productPage.layoutImage).toBeVisible();
+
+    const isLoaded = await this.productPage.layoutImage.evaluate(
+        (img: HTMLImageElement) => img.complete
+    );
+    expect(isLoaded).toBeTruthy();
+
+    const naturalWidth = await this.productPage.layoutImage.evaluate(
+        (img: HTMLImageElement) => img.naturalWidth
+    );
+    expect(naturalWidth).toBeGreaterThan(0);
 }
+
+async verifyFirstProductTitle(): Promise<void> {
+    const title = this.productPage.cardTitile;
+    await expect(title).toBeVisible();
+
+    const titleText = (await title.textContent())?.trim();
+    expect(titleText).toBeTruthy();
+}
+
+async verifyFirstProductPrice(): Promise<void> {
+    const price = this.productPage.productPrice;
+    await expect(price).toBeVisible();
+
+    const priceText = (await price.textContent())?.trim();
+    expect(priceText).toBeTruthy();
+
+    const currencyPattern = /[₹$€£]\s?\d+(\.\d{1,2})?/;
+    expect(priceText).toMatch(currencyPattern);
+}
+
+async verifyFirstProductRating(): Promise<void> {
+    const ratingContainer = this.productPage.productRating;
+    const stars = this.productPage.productRating; 
+    await expect(ratingContainer.first()).toBeVisible();
+
+    const filledStarsCount = await stars.count();
+    expect(filledStarsCount).toBeGreaterThan(0);
+    
+    const ratingText = (await ratingContainer.first().textContent())?.trim();
+
+    if (ratingText) {
+        const ratingValue = parseFloat(ratingText);
+        expect(ratingValue).toBeGreaterThanOrEqual(0);
+        expect(ratingValue).toBeLessThanOrEqual(5);
+    }   
+}}

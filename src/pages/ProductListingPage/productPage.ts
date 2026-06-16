@@ -13,6 +13,10 @@ export class ProductPage{
     readonly bannerTitle: Locator;
     readonly productGrid: Locator;
     readonly productCard: Locator;
+    readonly layoutImage:Locator;
+    readonly cardTitile:Locator;
+    readonly productPrice:Locator;
+    readonly productRating:Locator;
     
     constructor(page: Page)
     {
@@ -28,5 +32,9 @@ export class ProductPage{
         this.bannerTitle = page.locator('//p[@class="hero-heading"]');
         this.productGrid = page.locator('//div[@class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-1msksyp"]');
         this.productCard = page.locator('//div[@class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-3 css-sycj1h"]');
+        this.layoutImage=page.locator('//img[@alt="Stylecon 9 Seater RHS Sofa Set "]');
+        this.cardTitile=page.locator('//p[normalize-space()="Stylecon 9 Seater RHS Sofa Set"]');
+        this.productPrice=page.getByText('$650', { exact: true });
+        this.productRating=page.locator('//p[text()="Stylecon 9 Seater RHS Sofa Set "]/following-sibling::span[@aria-label="3 Stars"]');
     }
 }
