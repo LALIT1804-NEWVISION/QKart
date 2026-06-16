@@ -21,3 +21,24 @@ test("TC-004-Product Listing: Product cards render in flex-wrap layout without o
     await appAction.product.verifyFlexLayout();
     await appAction.product.verifyLayoutVisually();
 })
+
+// Arvind Work
+test("TC-004-Product Listing Page: First Product Image Visibility Verification", async ({ appAction }) => {
+    await appAction.product.verifyPageLoadState();
+    await appAction.product.verifyLayoutImageVisible();
+});
+
+test("TC-006-Home Page: Product Card Title Display Verification", async ({ appAction }) => {
+    await appAction.product.verifyPageLoadState();
+    await appAction.product.verifyFirstProductTitle();
+});
+
+test("TC-007-Home Page: Product Card Price and Currency Verification", async ({ appAction }) => {
+    await appAction.product.verifyPageLoadState();
+    await appAction.product.verifyFirstProductPrice();
+});
+
+test("TC-008-Home Page: Product Card Rating Display Verification", async ({ appAction }) => {
+    await appAction.product.verifyPageLoadState();
+    await appAction.product.verifyFirstProductRating();
+});
