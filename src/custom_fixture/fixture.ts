@@ -1,57 +1,52 @@
-
-
-
-import { test as base, expect, Page } from '@playwright/test';
-import { RegisterationAction } from '../actions/RegistrationAction/registrationAction';
-import RegisterationData from "../testdata/registrationData.json";
-import { CartAction } from '../actions/cartAction/cartAction';
-import loginData from '../testdata/login.json';
-import { loginAction } from '../actions/loginAction/loginAction';
+import { test as base, expect } from "@playwright/test";
+import { loginAction } from "../actions/loginAction/loginAction";
+import loginData from "../testdata/login.json";
+import { FooterAction } from "../actions/footerAction/footerAction";
+import { RegistrationAction } from '../actions/RegistrationAction/registrationAction';
+import RegistrationData from "../testdata/registrationData.json";
+import { CartAction } from "../actions/cartAction/cartAction";
 import { SearchAction } from '../actions/searchAction/searchAction';
-import { FooterAction } from '../actions/footerAction/footerAction';
-
-
 
 
 type AppActions = {
-    
-    
-    register: RegisterationAction;
-    cart: CartAction;
     login: loginAction;
-    search: SearchAction;
-    footer:FooterAction;
-    
+    footer: FooterAction;
+    register: RegistrationAction;
+    cart: CartAction;
+    search: SearchAction
 
+   
 
-}
- 
+};
+
 type Fixtures = {
+    gotoBaseUrl: void;
     appAction: AppActions;
 };
- 
+
 export const test = base.extend<Fixtures>({
+    gotoBaseUrl: [
+        async ({ page }, use) => {
+            await page.goto(RegistrationData.baseUrl);
+            await expect(page).toHaveURL(RegistrationData.baseUrl);
+            await use();
+        },
+        { auto: true },
+    ],
+
     appAction: async ({ page }, use) => {
-
-       
-        // Navigate BEFORE using actions
-        await page.goto(loginData.BaseURL);
- 
-
-
     
         await page.goto(loginData.BaseURL);
  
         const appAction: AppActions = {
             login: new loginAction(page),
-            search: new SearchAction(page),
             footer: new FooterAction(page),
-            register: new RegisterationAction(page),
-            cart: new CartAction(page)
+            register: new RegistrationAction(page),
+            cart: new CartAction(page),
+            search: new SearchAction(page),
         };
- 
         await use(appAction);
-    }
+    },
 });
- 
-export { expect };
+
+export { expect } from "@playwright/test";

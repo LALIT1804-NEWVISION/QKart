@@ -36,6 +36,7 @@ export default defineConfig({
     screenshot: 'on',
     video: 'on',
     trace: 'on-first-retry',
+
   },
 
   /* Configure projects for major browsers */
@@ -43,7 +44,9 @@ export default defineConfig({
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
+
     },
+
 
     // {
     //   name: 'firefox',
