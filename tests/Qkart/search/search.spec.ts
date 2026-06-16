@@ -9,7 +9,7 @@ test("Verify search_product", async ({ appAction }) => {
         searchdata.SearchDetails.searchbox);
 });
 
-test("Verify partial search product", async ({ appAction }) => {
+test("Verify partial search-product", async ({ appAction }) => {
 
     await appAction.search.searchPartialProduct(
         searchdata.SearchDetails.searchPartialText);
@@ -21,7 +21,7 @@ test("Verify invalid searching product", async ({ appAction }) => {
         searchdata.SearchDetails.searchinvalidproduct);
 });
 
-test("Verify search product with special characters", async ({ appAction }) => {
+test("Verify searching-product with special characters", async ({ appAction }) => {
 
     await appAction.search.searhProductwithspecicacharacters(
         searchdata.SearchDetails.searchproductspeccharacters);
@@ -36,14 +36,14 @@ test("Verify homepage is displayed after clearing search", async ({ appAction, }
 
 // search  product with Long String Input
 
-test("Verify search product with long input ", async ({ appAction }) => {
+test("Verify search with long input ", async ({ appAction }) => {
 
     await appAction.search.searchProduct(
         searchdata.SearchDetails.searchproductwithlonginput);
 });
 
 // search  product with numbers only
-test("Verify search product with numbers only", async ({ appAction }) => {
+test("Verify Products with numbers only", async ({ appAction }) => {
 
     await appAction.search.searchProduct(
         searchdata.SearchDetails.searchproductwithnumbersonly);
