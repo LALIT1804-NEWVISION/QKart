@@ -4,13 +4,14 @@ import loginData from "../testdata/login.json";
 import { FooterAction } from "../actions/footerAction/footerAction";
 import { RegisterationAction } from '../actions/RegistrationAction/registrationAction';
 import RegisterationData from "../testdata/registrationData.json";
+import { CartAction } from "../actions/cartAction/cartAction";
 
 type AppActions = {
     login: loginAction;
     footer: FooterAction;
     register: RegisterationAction;
     cart: CartAction;
-    login: loginAction;
+   
 
 };
 
@@ -33,12 +34,11 @@ export const test = base.extend<Fixtures>({
     
         await page.goto(loginData.BaseURL);
  
-        const appAction: appActions = {
-            login: new loginAction(page),
-            footer: new FooterAction(page)
-        
         const appAction: AppActions = {
-            register: new RegisterationAction(page), 
+            login: new loginAction(page),
+            footer: new FooterAction(page),
+            register: new RegisterationAction(page),
+            cart: new CartAction(page)
         };
         await use(appAction);
     },
