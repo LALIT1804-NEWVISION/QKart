@@ -1,1 +1,9 @@
+<<<<<<< HEAD
 {"total":1,"items":[{"uid":"36c900977e1d8b81a2c6893cc82bfc01","name":"chromium","statistic":{"failed":0,"broken":1,"skipped":0,"passed":47,"unknown":0,"total":48}}]}
+=======
+<<<<<<< HEAD
+{"total":1,"items":[{"uid":"36c900977e1d8b81a2c6893cc82bfc01","name":"chromium","statistic":{"failed":0,"broken":0,"skipped":0,"passed":17,"unknown":0,"total":17}}]}
+=======
+{"total":1,"items":[{"uid":"36c900977e1d8b81a2c6893cc82bfc01","name":"chromium","statistic":{"failed":0,"broken":0,"skipped":0,"passed":6,"unknown":0,"total":6}}]}
+>>>>>>> main
+>>>>>>> 78868000af4b81d4b1c88f9e47c046a2018f3421
