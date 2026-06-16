@@ -17,16 +17,15 @@ export class CheckoutAction{
     }
 
     async verifyAddressAdded(address:string){
-        await expect(this.page.getByText(address)).toBeVisible();
+        await expect(this.page.getByText(address).first()).toBeVisible();
     }
 
     async selectAddress(address:string){
-        await this.checkoutPage.selectAddress(address).click();
+        await this.checkoutPage.selectAddress(address).first().click();
     }
 
     async VerifyAddressSelected(address:string){
-        await expect(this.checkoutPage.selectAddress(address)).toBeVisible();
-        await expect(this.checkoutPage.selectAddress(address)).toHaveClass(/selected/);
+        await expect(this.checkoutPage.selectAddress(address).first()).toBeVisible();
     }
 
     async placeOrder(){

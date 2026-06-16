@@ -1,0 +1,203 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: Qkart\loginSpec\cart\cart.spec.ts >> testcases 10: Decrease quantity from 1 in Checkout
+- Location: tests\Qkart\loginSpec\cart\cart.spec.ts:95:5
+
+# Error details
+
+```
+Error: expect(locator).toBeVisible() failed
+
+Locator: locator('text=Your cart is empty. Add an item to get started.')
+Expected: visible
+Timeout: 5000ms
+Error: element(s) not found
+
+Call log:
+  - Expect "toBeVisible" with timeout 5000ms
+  - waiting for locator('text=Your cart is empty. Add an item to get started.')
+
+```
+
+```yaml
+- link "QKart-icon":
+  - /url: /
+  - img "QKart-icon"
+- img "Dummy123"
+- paragraph: Dummy123
+- button "Logout"
+- heading "Shipping" [level=4]
+- paragraph: Manage all the shipping addresses you want.This way you won 't have to enter the shipping address manually with every order.Select the address you want to get your order delivered.
+- separator
+- paragraph: No addresses found for this account.Please add one to proceed
+- button "Add new address"
+- heading "Payment" [level=4]
+- paragraph: Payment Method
+- separator
+- paragraph: Wallet
+- paragraph: Pay $ 780 of available $ 1645
+- button "PLACE ORDER" [disabled]
+- img "Roadster Mens Running Shoes"
+- text: "Roadster Mens Running Shoes Qty: 1 $30"
+- img "YONEX Smash Badminton Racquet"
+- text: "YONEX Smash Badminton Racquet Qty: 1 $100"
+- img "Stylecon 9 Seater RHS Sofa Set"
+- text: "Stylecon 9 Seater RHS Sofa Set Qty: 1 $650 Order total $780"
+- heading "Order Details" [level=2]
+- paragraph: Products
+- paragraph: "3"
+- paragraph: Subtotal
+- paragraph: $780
+- paragraph: Shipping Charges
+- paragraph: $0
+- paragraph: Total
+- paragraph: $780
+- img "QKart-icon"
+- paragraph: QKart is your one stop solution to the buy the latest trending items with India 's Fastest Delivery to your doorstep
+- paragraph:
+  - link "Privacy policy":
+    - /url: privacy-policy
+- paragraph:
+  - link "About us":
+    - /url: aboutus
+- paragraph: Contact us
+- paragraph:
+  - link "Terms of Service":
+    - /url: terms-of-service
+```
+
+# Test source
+
+```ts
+  1   | import { cartPages } from "../../pages/addTocart/Cartpage";
+  2   | import { expect, Page } from "@playwright/test";
+  3   | 
+  4   | export class CartAction {
+  5   | 
+  6   |     readonly page: Page;
+  7   |     private readonly cartPage: cartPages;
+  8   | 
+  9   |     constructor(page: Page) {
+  10  |         this.page = page;
+  11  |         this.cartPage = new cartPages(page);
+  12  |     }
+  13  | 
+  14  |     async addItemsToCart() {
+  15  |         await expect(this.cartPage.shoesItem).toBeVisible();
+  16  |         await this.cartPage.shoesItem.click();
+  17  |     }
+  18  | 
+  19  |     async addBadmintonItemToCart() {
+  20  |         await expect(this.cartPage.BadmintonItem).toBeVisible();
+  21  |         await this.cartPage.BadmintonItem.click();
+  22  |     }
+  23  | 
+  24  |     async addSofaSetItemToCart() {
+  25  |         await expect(this.cartPage.sofaSetItem).toBeVisible();
+  26  |         await this.cartPage.sofaSetItem.click();
+  27  |     }
+  28  | 
+  29  |     async verifyItemAlreadyInCartMessage() {
+  30  |         await expect(this.cartPage.itemAlreadyInCartMessage).toBeVisible();
+  31  | 
+  32  |         await expect(this.cartPage.itemAlreadyInCartMessage)
+  33  |             .toHaveText(
+  34  |                 'Item already in cart. Use the cart sidebar to update quantity or remove item.'
+  35  |             );
+  36  |     }
+  37  | 
+  38  |     async navigateToCheckout() {
+  39  |         const baseUrl = this.page.url().split('/').slice(0, 3).join('/');
+  40  |         await this.page.goto(`${baseUrl}/checkout`);
+  41  |         await this.page.waitForLoadState('networkidle');
+  42  |     }
+  43  | 
+  44  |     async decreaseItemQuantity(itemIndex: number = 0) {
+  45  |         const buttons = await this.cartPage.quantityDecreaseButton.all();
+  46  |         if (buttons.length > itemIndex) {
+  47  |             await buttons[itemIndex].click();
+  48  |             await this.page.waitForLoadState('networkidle');
+  49  |         }
+  50  |     }
+  51  | 
+  52  |     async verifyItemQuantity(itemIndex: number, expectedQuantity: number) {
+  53  |         const quantities = await this.cartPage.quantityDisplay.all();
+  54  |         if (quantities.length > itemIndex) {
+  55  |             await expect(quantities[itemIndex]).toHaveValue(expectedQuantity.toString());
+  56  |         }
+  57  |     }
+  58  | 
+  59  |     async verifyItemSubtotal(itemIndex: number, expectedSubtotal: string) {
+  60  |         const subtotals = await this.cartPage.itemSubtotal.all();
+  61  |         if (subtotals.length > itemIndex) {
+  62  |             await expect(subtotals[itemIndex]).toContainText(expectedSubtotal);
+  63  |         }
+  64  |     }
+  65  | 
+  66  |     async verifyCartTotal(expectedTotal: string) {
+  67  |         await expect(this.cartPage.cartTotal).toContainText(expectedTotal);
+  68  |     }
+  69  | 
+  70  |     async refreshBrowserAndVerifyCartPersists() {
+  71  |         await this.page.reload();
+  72  |         await this.page.waitForLoadState('networkidle');
+  73  |         await this.navigateToCheckout();
+  74  |     }
+  75  | 
+  76  |     async verifyEmptyCartMessage() {
+> 77  |         await expect(this.cartPage.emptyCartMessage).toBeVisible();
+      |                                                      ^ Error: expect(locator).toBeVisible() failed
+  78  |     }
+  79  | 
+  80  |     async verifyLoginPromptMessage() {
+  81  |         await expect(this.cartPage.loginPromptMessage).toBeVisible();
+  82  |         await expect(this.cartPage.loginPromptMessage)
+  83  |             .toHaveText('Login to add an item to the Cart');
+  84  |     }
+  85  | 
+  86  |     async clickContinueShoppingButton() {
+  87  |         await expect(this.cartPage.continueShoppingButton).toBeVisible();
+  88  |         await this.cartPage.continueShoppingButton.click();
+  89  |     }
+  90  | 
+  91  |     async verifyItemsExistInCheckout() {
+  92  |         const items = await this.cartPage.quantityDisplay.all();
+  93  |         expect(items.length).toBeGreaterThan(0);
+  94  |     }
+  95  | 
+  96  |     async getCartItemsCount(): Promise<number> {
+  97  |         const items = await this.cartPage.quantityDisplay.all();
+  98  |         return items.length;
+  99  |     }
+  100 | 
+  101 |     async verifyItemSubtotalDecreased(itemIndex: number, previousSubtotal: string) {
+  102 |         const subtotals = await this.cartPage.itemSubtotal.all();
+  103 |         if (subtotals.length > itemIndex) {
+  104 |             const currentSubtotal = await subtotals[itemIndex].textContent();
+  105 |             expect(currentSubtotal).not.toBe(previousSubtotal);
+  106 |         }
+  107 |     }
+  108 | 
+  109 |     async verifyCartTotalDecreased(previousTotal: string) {
+  110 |         const currentTotal = await this.cartPage.cartTotal.textContent();
+  111 |         expect(currentTotal).not.toBe(previousTotal);
+  112 |     }
+  113 | 
+  114 |     async getItemSubtotal(itemIndex: number): Promise<string | null> {
+  115 |         const subtotals = await this.cartPage.itemSubtotal.all();
+  116 |         if (subtotals.length > itemIndex) {
+  117 |             return await subtotals[itemIndex].textContent();
+  118 |         }
+  119 |         return null;
+  120 |     }
+  121 | 
+  122 |     async getCartTotal(): Promise<string | null> {
+  123 |         return await this.cartPage.cartTotal.textContent();
+  124 |     }}
+```

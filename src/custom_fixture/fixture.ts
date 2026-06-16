@@ -1,5 +1,5 @@
 import { test as base, expect, Page } from '@playwright/test';
-import { RegisterationAction } from '../actions/RegistrationAction/registrationAction';
+import {RegisterationAction} from "../actions/RegistrationAction/registrationAction";
 import RegisterationData from "../testdata/registrationData.json";
 import { CartAction } from '../actions/cartAction/cartAction';
 import loginData from '../testdata/login.json';
@@ -32,7 +32,7 @@ export const test = base.extend<Fixtures>({
         const appAction: AppActions = {
             register: new RegisterationAction(page),
             cart: new CartAction(page),
-            login: new loginAction(page),,
+            login: new loginAction(page),
             checkout: new CheckoutAction(page)
         };
         await use(appAction);
