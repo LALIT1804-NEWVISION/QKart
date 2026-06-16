@@ -1,0 +1,163 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: checkout.spec.ts >> TC_01:Verify Adding a New Shipping Address
+- Location: tests\checkout.spec.ts:6:5
+
+# Error details
+
+```
+Error: expect(locator).toBeVisible() failed
+
+Locator: getByText('Flat No 12, Sunrise Apartments, MG Road, Bangalore - 560001')
+Expected: visible
+Error: strict mode violation: getByText('Flat No 12, Sunrise Apartments, MG Road, Bangalore - 560001') resolved to 2 elements:
+    1) <p class="MuiTypography-root MuiTypography-body1 css-yg30e6"> Flat No 12, Sunrise Apartments, MG Road, Bangalo…</p> aka getByText('Flat No 12, Sunrise').first()
+    2) <p class="MuiTypography-root MuiTypography-body1 css-yg30e6"> Flat No 12, Sunrise Apartments, MG Road, Bangalo…</p> aka getByText('Flat No 12, Sunrise').nth(1)
+
+Call log:
+  - Expect "toBeVisible" with timeout 5000ms
+  - waiting for getByText('Flat No 12, Sunrise Apartments, MG Road, Bangalore - 560001')
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - generic [ref=e4]:
+    - link "QKart-icon" [ref=e6] [cursor=pointer]:
+      - /url: /
+      - img "QKart-icon" [ref=e7]
+    - generic [ref=e8]:
+      - img "Dummy123" [ref=e10]
+      - paragraph [ref=e11]: Dummy123
+      - button "Logout" [ref=e12] [cursor=pointer]: Logout
+  - generic [ref=e13]:
+    - generic [ref=e15]:
+      - heading "Shipping" [level=4] [ref=e16]
+      - paragraph [ref=e17]: Manage all the shipping addresses you want.This way you won 't have to enter the shipping address manually with every order.Select the address you want to get your order delivered.
+      - separator [ref=e18]
+      - generic [ref=e19]:
+        - generic [ref=e20] [cursor=pointer]:
+          - generic [ref=e21]:
+            - generic [ref=e22]:
+              - radio [ref=e23]
+              - img [ref=e25]
+            - paragraph [ref=e27]: Flat No 12, Sunrise Apartments, MG Road, Bangalore - 560001
+          - button "Delete" [ref=e29]:
+            - img [ref=e31]
+            - paragraph [ref=e33]: Delete
+        - generic [ref=e34] [cursor=pointer]:
+          - generic [ref=e35]:
+            - generic [ref=e36]:
+              - radio [ref=e37]
+              - img [ref=e39]
+            - paragraph [ref=e41]: Flat No 12, Sunrise Apartments, MG Road, Bangalore - 560001
+          - button "Delete" [ref=e43]:
+            - img [ref=e45]
+            - paragraph [ref=e47]: Delete
+      - button "Add new address" [ref=e48] [cursor=pointer]: Add new address
+      - heading "Payment" [level=4] [ref=e49]
+      - paragraph [ref=e50]: Payment Method
+      - separator [ref=e51]
+      - generic [ref=e52]:
+        - paragraph [ref=e53]: Wallet
+        - paragraph [ref=e54]: Pay $ 30 of available $ 1390
+      - button "PLACE ORDER" [ref=e55] [cursor=pointer]:
+        - img [ref=e57]
+        - text: PLACE ORDER
+    - generic [ref=e59]:
+      - generic [ref=e60]:
+        - generic [ref=e62]:
+          - img "Roadster Mens Running Shoes" [ref=e64]
+          - generic [ref=e65]:
+            - generic [ref=e66]: Roadster Mens Running Shoes
+            - generic [ref=e67]:
+              - generic [ref=e68]: "Qty: 1"
+              - generic [ref=e69]: $30
+        - generic [ref=e70]:
+          - generic [ref=e71]: Order total
+          - generic [ref=e72]: $30
+      - generic [ref=e73]:
+        - heading "Order Details" [level=2] [ref=e74]
+        - generic [ref=e75]:
+          - paragraph [ref=e76]: Products
+          - paragraph [ref=e77]: "1"
+        - generic [ref=e78]:
+          - paragraph [ref=e79]: Subtotal
+          - paragraph [ref=e80]: $30
+        - generic [ref=e81]:
+          - paragraph [ref=e82]: Shipping Charges
+          - paragraph [ref=e83]: $0
+        - generic [ref=e84]:
+          - paragraph [ref=e85]: Total
+          - paragraph [ref=e86]: $30
+  - generic [ref=e87]:
+    - img "QKart-icon" [ref=e89]
+    - paragraph [ref=e90]: QKart is your one stop solution to the buy the latest trending items with India 's Fastest Delivery to your doorstep
+    - generic [ref=e91]:
+      - paragraph [ref=e92] [cursor=pointer]:
+        - link "Privacy policy" [ref=e93]:
+          - /url: privacy-policy
+      - paragraph [ref=e94] [cursor=pointer]:
+        - link "About us" [ref=e95]:
+          - /url: aboutus
+      - paragraph [ref=e96] [cursor=pointer]: Contact us
+      - paragraph [ref=e97] [cursor=pointer]:
+        - link "Terms of Service" [ref=e98]:
+          - /url: terms-of-service
+```
+
+# Test source
+
+```ts
+  1  | import {CheckoutPage} from "../pages/checkoutPage";
+  2  | import{Page,expect} from "@playwright/test";
+  3  | 
+  4  | export class CheckoutAction{
+  5  |     page:Page;
+  6  |     checkoutPage:CheckoutPage;
+  7  | 
+  8  |     constructor(page:Page){
+  9  |         this.page=page;
+  10 |         this.checkoutPage=new CheckoutPage(page);
+  11 |     }
+  12 | 
+  13 |     async addNewAddress(address:string){
+  14 |         await this.checkoutPage.addNewAddressBtn.click();
+  15 |         await this.checkoutPage.addressTextBox.fill(address);
+  16 |         await this.checkoutPage.addBtn.click();
+  17 |     }
+  18 | 
+  19 |     async verifyAddressAdded(address:string){
+> 20 |         await expect(this.page.getByText(address)).toBeVisible();
+     |                                                    ^ Error: expect(locator).toBeVisible() failed
+  21 |     }
+  22 | 
+  23 |     async selectAddress(address:string){
+  24 |         await this.checkoutPage.selectAddress(address).click();
+  25 |     }
+  26 | 
+  27 |     async VerifyAddressSelected(address:string){
+  28 |         await expect(this.checkoutPage.selectAddress(address)).toBeVisible();
+  29 |     }
+  30 | 
+  31 |     async placeOrder(){
+  32 |         await this.checkoutPage.placeOrderBtn.click();
+  33 |     }
+  34 | 
+  35 |     async verifyOrderSuccess(){
+  36 |         await expect(this.checkoutPage.successMsg).toBeVisible();
+  37 |     }
+  38 |     
+  39 |     async verifyPlaceOrderDisabled(){
+  40 |         await expect(this.checkoutPage.placeOrderBtn).toBeDisabled();
+  41 |     }
+  42 | }
+```

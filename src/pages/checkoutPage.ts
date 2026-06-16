@@ -1,26 +1,23 @@
-import {Page,Locator} from "@playwright/test";
- 
-export class CheckoutPage{
- 
-    page:Page;
-    savedAddress:Locator;
-    PlaceOrderButton:Locator;
-    confirmationMessage:Locator;
-    emptyCartMessage:Locator;
-    deleteAddressButton:Locator;
-    addressList:Locator;
-    emptyAddressMessage:Locator;
-    
- 
-    constructor(page:Page){
-        this.page=page;
-        this.savedAddress=page.locator("//p[text()='Flat No 12, Sunrise Apartments, MG Road, Bangalore -560001']");
-        this.PlaceOrderButton=page.locator("//button[@type='button'][text()='PLACE ORDER']");
-        this.confirmationMessage=page.locator("#notistack-snackbar");
-        this.emptyCartMessage=page.locator("//div[@class='css-1dimb5e']/p[text()='Your cart is empty!']");
-        this.deleteAddressButton=page.locator('(//*[@data-testid="DeleteIcon"])[position()=1]');
-        this.addressList=page.locator('//div[@class="address-item not-selected MuiBox-root css-0"]/parent::div');
-        this.emptyAddressMessage=page.locator("#notistack-snackbar");
-       
+import { Page, Locator } from "@playwright/test";
+
+export class CheckoutPage {
+
+    readonly page: Page;
+    readonly addNewAddressBtn: Locator;
+    readonly addressTextBox: Locator;
+    readonly addBtn: Locator;
+    readonly addressList:Locator;
+    readonly selectAddress:(address:string)=>Locator;
+    readonly placeOrderBtn:Locator;
+    readonly successMsg:Locator;
+    constructor(page: Page) {
+        this.page = page;
+        this.addNewAddressBtn = page.getByRole("button", { name: "Add new address" });
+        this.addressTextBox = page.getByPlaceholder("Enter your complete address");
+        this.addBtn = page.getByRole("button", { name: "ADD" });
+        this.addressList=page.locator("(//div[@class='MuiBox-root css-0'])[position()=1]");
+        this.selectAddress= (address:string) => this.page.getByText(address);
+        this.placeOrderBtn=page.getByRole("button", { name: "PLACE ORDER" });
+        this.successMsg=page.getByText("Order placed successfully");
     }
 }
