@@ -1,15 +1,12 @@
 {
     "BaseURL": "https://crio-qkart-frontend-qa.vercel.app",
+    "HomeURL": "https://crio-qkart-frontend-qa.vercel.app",
 
-    "LoginDetails" : {
-        "Username" : "Dummy123",
-        "Password" : "Dummy@123"
+    "LoginDetails": {
+        "Username": "Dummy123",
+        "Password": "Dummy@123"
     },
-    "incorrectLoginDetails" : {
-        "Username" : "Dummy124",
-        "Password" : "Dummy@123"
 
-    },
     "incorrectPassword" : {
         "Username" : "Dummy123",
         "Password" : "Dummy@124"
@@ -29,10 +26,21 @@
      "username": "Admin-nvs",
      "password": "adminnvs"
     },
-    "SpaceCredentials"
-   : {
-  "Username": " qwe321",
+    
+    "SpaceCredentials": {
+    "Username": " qwe321",
   "Password": " qwe@321"
-}
+    },
 
+    "incorrectLoginDetails": {
+        "Username": "Dummy124",
+        "Password": "Dummy@123"
+    },
+
+    "FooterLinks": {
+        "privacyPolicyUrl": "https://crio-qkart-frontend-qa.vercel.app/privacy-policy",
+        "aboutUsUrl": "https://crio-qkart-frontend-qa.vercel.app/aboutus",
+        "contactUsUrl": "https://crio-qkart-frontend-qa.vercel.app/contact-us",
+        "termsOfServiceUrl": "https://crio-qkart-frontend-qa.vercel.app/terms-of-service"
+    }
 }

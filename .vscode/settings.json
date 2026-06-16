@@ -1,0 +1,4 @@
+{
+    "playwrightBdd.configPath": "playwright.config.ts",
+    "playwrightBdd.stepsFolder": "."
+}

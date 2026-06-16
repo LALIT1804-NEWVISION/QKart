@@ -10,6 +10,7 @@ export class loginPages
     readonly button: Locator;
     readonly loginSuccessMessage: Locator;
     readonly userCredentialValidation: Locator;
+    readonly qkartLogo: Locator;
 
     // Invalid Credential Validation
     readonly errorMessageIncorrectUsername: Locator;
@@ -34,6 +35,7 @@ export class loginPages
         this.button = page.locator('//button[contains(text(), "Login to QKart")]')
         this.loginSuccessMessage = page.locator('//div[contains(text() , "Logged in successfully")]')
         this.userCredentialValidation = page.locator('//p[contains(text(), "Dummy123")]')
+        this.qkartLogo = page.getByRole('img', { name: /qkart/i }).first();
 
         // Invalid Credential Validation
         this.errorMessageIncorrectUsername = page.locator('//div[contains(text() , "Username does not exist")]')
