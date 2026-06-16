@@ -14,8 +14,7 @@ type Fixtures = {
  
 export const test = base.extend<Fixtures>({
     appAction: async ({ page }, use) => {
-       
-        // Navigate BEFORE using actions
+    
         await page.goto(loginData.BaseURL);
  
         const appAction: appActions = {
