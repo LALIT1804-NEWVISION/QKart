@@ -55,7 +55,8 @@ export class loginAction
         await this.loginPage.button.click();
 
         // verify user should login successfully
-        await expect(this.loginPage.loginValidation).toBeVisible();
+        await expect(this.loginPage.loginSuccessMessage).toHaveText('Logged in successfully');
+        
         // verify user credential should be correct
         await expect(this.loginPage.userCredentialValidation).toBeVisible();   
 
@@ -141,7 +142,7 @@ export class loginAction
         await this.loginPage.button.click();
 
         // verify user should login successfully
-        await expect(this.loginPage.loginValidation).toBeVisible();
+        await expect(this.loginPage.loginSuccessMessage).toBeVisible();
         // verify user credential should be correct
         await expect(this.loginPage.userCredentialValidation).toBeVisible();
 
@@ -197,8 +198,9 @@ export class loginAction
         await this.loginPage.button.click();
 
         // verify user should login successfully
-        await expect(this.loginPage.loginValidation).toBeVisible();
+        await expect(this.loginPage.loginSuccessMessage).toBeVisible();
      
 
     }
+
 }
