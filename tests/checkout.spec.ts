@@ -8,8 +8,8 @@ test('TC_01:Verify Adding a New Shipping Address', async ({ appAction }) => {
     await appAction.cart.addItemsToCart();
     await appAction.cart.clickCartButton();
     await appAction.cart.navigateToCheckout();
-    await appAction.checkout.addNewAddress(checkout.address);
-    await appAction.checkout.verifyAddressAdded(checkout.address);
+    await appAction.checkout.addNewAddress(checkout.address1);
+    await appAction.checkout.verifyAddressAdded(checkout.address1);
 });
 
 test('TC_02:Verify Selecting a Shipping Address', async ({ appAction }) => {
@@ -17,8 +17,8 @@ test('TC_02:Verify Selecting a Shipping Address', async ({ appAction }) => {
     await appAction.cart.addItemsToCart();
     await appAction.cart.clickCartButton();
     await appAction.cart.navigateToCheckout(); 
-    await appAction.checkout.selectAddress(checkout.address);
-    await appAction.checkout.VerifyAddressSelected(checkout.address);
+    await appAction.checkout.selectAddress(checkout.address1);
+    await appAction.checkout.VerifyAddressSelected(checkout.address1);
 });
 
 test('TC_03:Verify Successful Order Placement with Valid Address', async ({ appAction }) => {
@@ -26,7 +26,7 @@ test('TC_03:Verify Successful Order Placement with Valid Address', async ({ appA
      await appAction.cart.addItemsToCart();
     await appAction.cart.clickCartButton();
     await appAction.cart.navigateToCheckout();
-    await appAction.checkout.selectAddress(checkout.address);
+    await appAction.checkout.selectAddress(checkout.address1);
     await appAction.checkout.placeOrder();
     await appAction.checkout.verifyOrderSuccess();
 });
