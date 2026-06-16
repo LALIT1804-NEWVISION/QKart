@@ -1,7 +1,5 @@
-//import { expect, test } from "../../../src/custom_fixture/fixture";
 import { test, expect } from "../../../src/custom_fixture/fixture";
 import loginData from "../../../src/testdata/login.json";
-
 
 
 test("TC_01 Verify that a user can log in with a valid username and password", async({appAction}) => 
