@@ -16,7 +16,7 @@ export class FooterPage {
 
         this.privacyPolicyLink = page.getByRole("link", { name: /privacy policy/i });
         this.aboutUsLink = page.getByRole("link", { name: /about us/i });
-        this.contactUsLink = page.locator("text=Contact");
+        this.contactUsLink = page.locator("//p[text()='Contact us']");
         this.termsOfServiceLink = page.getByRole("link", { name: /terms of service/i });
         this.contactUsPopupTitle = page.getByRole("heading", { name: "Contact Us" });
         this.nameField = page.getByRole("textbox", { name: "Name" });

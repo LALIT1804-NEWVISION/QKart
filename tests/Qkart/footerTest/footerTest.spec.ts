@@ -1,5 +1,5 @@
-import { test } from "../../src/custom_fixture/fixture";
-import loginData from "../../src/testdata/login.json";
+import { test } from "../../../src/custom_fixture/fixture";
+import loginData from "../../../src/testdata/login.json";
 
 test.describe("QKart Footer Links Validation", () => {
 
