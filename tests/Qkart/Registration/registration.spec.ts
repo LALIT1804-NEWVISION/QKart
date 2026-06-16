@@ -1,5 +1,6 @@
 import { test } from "../../../src/custom_fixture/fixture";
 
+ 
   test("REG_001 - Verify Registration with Valid Details", async ({appAction}) => {
     await appAction.register.Click_On_RegisterLink();
     await appAction.register.registeration_details();
