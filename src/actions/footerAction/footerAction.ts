@@ -19,11 +19,7 @@ export class FooterAction {
         ]);
 
         await newTab.waitForLoadState();
-
-        await expect(newTab).toHaveURL(
-            loginData.FooterLinks.privacyPolicyUrl
-        );
-
+        await expect(newTab).toHaveURL(loginData.FooterLinks.privacyPolicyUrl);
         await newTab.close();
     }
 
