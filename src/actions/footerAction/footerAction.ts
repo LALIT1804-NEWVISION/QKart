@@ -19,11 +19,7 @@ export class FooterAction {
         ]);
 
         await newTab.waitForLoadState();
-
-        await expect(newTab).toHaveURL(
-            loginData.FooterLinks.privacyPolicyUrl
-        );
-
+        await expect(newTab).toHaveURL(loginData.FooterLinks.privacyPolicyUrl);
         await newTab.close();
     }
 
@@ -35,38 +31,19 @@ export class FooterAction {
         ]);
 
         await newTab.waitForLoadState();
-
-        await expect(newTab).toHaveURL(
-            loginData.FooterLinks.aboutUsUrl
-        );
-
+        await expect(newTab).toHaveURL(loginData.FooterLinks.aboutUsUrl);
         await newTab.close();
     }
 
     async verifyContactUsFooterLink() {
 
-    await this.footerPage.contactUsLink.click();
-
-    await expect(
-        this.footerPage.contactUsPopupTitle
-    ).toBeVisible();
-
-    await expect(
-        this.footerPage.nameField
-    ).toBeVisible();
-
-    await expect(
-        this.footerPage.emailField
-    ).toBeVisible();
-
-    await expect(
-        this.footerPage.messageField
-    ).toBeVisible();
-
-    await expect(
-        this.footerPage.contactNowButton
-    ).toBeVisible();
-}
+        await this.footerPage.contactUsLink.click();
+        await expect(this.footerPage.contactUsPopupTitle).toBeVisible();
+        await expect(this.footerPage.nameField).toBeVisible();
+        await expect(this.footerPage.emailField).toBeVisible();
+        await expect(this.footerPage.messageField).toBeVisible();
+        await expect(this.footerPage.contactNowButton).toBeVisible();
+    }
     async verifyTermsOfServiceFooterLink() {
 
         const [newTab] = await Promise.all([
@@ -75,11 +52,7 @@ export class FooterAction {
         ]);
 
         await newTab.waitForLoadState();
-
-        await expect(newTab).toHaveURL(
-            loginData.FooterLinks.termsOfServiceUrl
-        );
-
+        await expect(newTab).toHaveURL(loginData.FooterLinks.termsOfServiceUrl);
         await newTab.close();
     }
 }

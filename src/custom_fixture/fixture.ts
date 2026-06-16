@@ -30,6 +30,12 @@ export const test = base.extend<Fixtures>({
     ],
 
     appAction: async ({ page }, use) => {
+    
+        await page.goto(loginData.BaseURL);
+ 
+        const appAction: appActions = {
+            login: new loginAction(page),
+            footer: new FooterAction(page)
         
         const appAction: AppActions = {
             register: new RegisterationAction(page), 
