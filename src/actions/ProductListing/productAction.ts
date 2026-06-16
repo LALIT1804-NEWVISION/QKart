@@ -46,4 +46,34 @@ export class ProductAction {
     async verifyBannerTitleVisibilty() {
         await expect(this.productPage.bannerTitle).toBeVisible();
     }
+
+    async waitForProductGridAndCardToLoad() {
+        const productGrid = this.productPage.productGrid;
+        await expect(productGrid).toBeVisible({ timeout: 10000 });
+
+        const productCards = this.productPage.productGrid;
+        await expect(productCards.first()).toBeVisible({ timeout: 10000 });
+
+        const cardCount = await productCards.count();
+        expect(cardCount).toBeGreaterThan(0);
+    }
+
+    async verifyFlexLayout() {
+        const gridStyles = await this.productPage.productGrid.evaluate((el) => {
+        const styles = window.getComputedStyle(el);
+        return {
+            display: styles.display,
+            flexWrap: styles.flexWrap,
+        };
+        });
+
+        expect(gridStyles.display).toBe('flex');
+        expect(gridStyles.flexWrap).toBe('wrap');
+    }
+
+    async verifyLayoutVisually() {
+        await expect(this.productPage.productGrid).toHaveScreenshot('product-grid-layout.png');
+    }
+
+    
 }

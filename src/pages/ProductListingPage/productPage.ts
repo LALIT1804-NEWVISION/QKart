@@ -11,6 +11,8 @@ export class ProductPage{
     readonly headerUsername: Locator;
     readonly banner: Locator;
     readonly bannerTitle: Locator;
+    readonly productGrid: Locator;
+    readonly productCard: Locator;
     
     constructor(page: Page)
     {
@@ -24,5 +26,7 @@ export class ProductPage{
         this.headerUsername = page.locator('//p[@class="username-text"]');
         this.banner = page.locator('//div[@class="hero MuiBox-root css-0"]');
         this.bannerTitle = page.locator('//p[@class="hero-heading"]');
+        this.productGrid = page.locator('//div[@class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-1msksyp"]');
+        this.productCard = page.locator('//div[@class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-3 css-sycj1h"]');
     }
 }
