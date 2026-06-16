@@ -124,4 +124,41 @@ async verifyFirstProductRating(): Promise<void> {
         expect(ratingValue).toBeGreaterThanOrEqual(0);
         expect(ratingValue).toBeLessThanOrEqual(5);
     }   
-}}
+}
+
+async verifyAddToCartFunctionality(): Promise<void> {
+    const addToCartButton = this.productPage.addToCartButton;
+    await expect(addToCartButton).toBeVisible();
+    await expect(addToCartButton).toBeEnabled();
+    await addToCartButton.click();
+    await expect(addToCartButton).toBeVisible();
+}
+
+async verifyProductCount(expectedCount: number): Promise<void> {
+    await expect(this.productPage.productCards.first()).toBeVisible();
+    const actualCount = await this.productPage.productCards.count();
+    expect(actualCount).toBe(expectedCount);
+}   
+
+async verifyPage2Navigation(): Promise<void> {
+    const firstPageProduct = await this.productPage.productTitles.first().textContent();
+    await expect(this.productPage.page2Button).toBeVisible();
+    await this.productPage.page2Button.click();
+    await this.productPage.page.waitForLoadState('networkidle');
+    await expect(this.productPage.productTitles.first()).toBeVisible();
+    const secondPageProduct = await this.productPage.productTitles.first().textContent();
+    expect(secondPageProduct).not.toEqual(firstPageProduct);
+}
+
+async verifyForwardArrowNavigation(): Promise<void> {
+    const firstPageProduct = await this.productPage.productTitles.first().textContent();
+    await expect(this.productPage.nextPageButton).toBeVisible();
+    await expect(this.productPage.nextPageButton).toBeEnabled();
+    await this.productPage.nextPageButton.click();
+    await this.productPage.page.waitForLoadState('networkidle');
+    await expect(this.productPage.productTitles.first()).toBeVisible();
+    const secondPageProduct = await this.productPage.productTitles.first().textContent();
+    expect(secondPageProduct).not.toEqual(firstPageProduct);
+}
+
+}

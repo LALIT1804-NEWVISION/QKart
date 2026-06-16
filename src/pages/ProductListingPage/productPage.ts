@@ -17,6 +17,12 @@ export class ProductPage{
     readonly cardTitile:Locator;
     readonly productPrice:Locator;
     readonly productRating:Locator;
+    readonly addToCartButton: Locator;
+    readonly productCards: Locator;
+    readonly page2Button: Locator;
+    readonly productTitles: Locator;
+    readonly nextPageButton: Locator;
+    
     
     constructor(page: Page)
     {
@@ -36,5 +42,11 @@ export class ProductPage{
         this.cardTitile=page.locator('//p[normalize-space()="Stylecon 9 Seater RHS Sofa Set"]');
         this.productPrice=page.getByText('$650', { exact: true });
         this.productRating=page.locator('//p[text()="Stylecon 9 Seater RHS Sofa Set "]/following-sibling::span[@aria-label="3 Stars"]');
+        this.addToCartButton = page.locator("//p[contains(normalize-space(.),'Stylecon 9 Seater RHS Sofa Set')]/ancestor::div[contains(@class,'MuiCard')]//button[contains(.,'Add to cart')]");
+        this.productCards = page.locator("//div[contains(@class,'MuiCard-root')]");
+        this.page2Button = page.locator("//button[@aria-label='Go to page 2']");
+        this.productTitles = page.locator("//p[contains(@class,'MuiTypography')]");
+        this.nextPageButton = page.locator("//button[@aria-label='Go to next page']");
+        
     }
 }
