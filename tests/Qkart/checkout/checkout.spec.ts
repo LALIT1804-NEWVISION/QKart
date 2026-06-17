@@ -52,7 +52,7 @@ test("TC005_Verify Cart is cleared After Successfully Order Placement",async({ap
 
 test("TC007_Verify Multiple Address added successfully",async({appAction})=>{
     await appAction.login.loginUser(login.LoginDetails);
-     await appAction.cart.addItemsToCart();
+    await appAction.cart.addItemsToCart();
     await appAction.cart.clickCartButton();
     await appAction.cart.navigateToCheckout();
     await appAction.checkout.addNewAddress(checkout.address1);
