@@ -1,0 +1,1 @@
+A snapshot doesn't exist at C:\QKart\QKart\tests\Qkart\productListing\productlisting.spec.ts-snapshots\product-grid-layout-chromium-win32.png, writing actual.
