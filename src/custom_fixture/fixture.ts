@@ -14,7 +14,10 @@ import { FooterAction } from "../actions/footerAction/footerAction";
 import { RegistrationAction } from '../actions/RegistrationAction/registrationAction';
 import RegistrationData from "../testdata/registrationData.json";
 import { CartAction } from "../actions/cartAction/cartAction";
->>>>>>> 78868000af4b81d4b1c88f9e47c046a2018f3421
+import { SearchAction } from '../actions/searchAction/searchAction';
+import { ProductAction } from '../actions/ProductListing/productAction';
+
+
 
 type AppActions = {
     login: loginAction;
@@ -24,6 +27,10 @@ type AppActions = {
     footer: FooterAction;
     register: RegistrationAction;
     cart: CartAction;
+    search: SearchAction
+    product: ProductAction;
+
+
    
 
 >>>>>>> 78868000af4b81d4b1c88f9e47c046a2018f3421
@@ -58,8 +65,10 @@ export const test = base.extend<Fixtures>({
             login: new loginAction(page),
             footer: new FooterAction(page),
             register: new RegistrationAction(page),
-            cart: new CartAction(page)
->>>>>>> 78868000af4b81d4b1c88f9e47c046a2018f3421
+            cart: new CartAction(page),
+            search: new SearchAction(page),
+            product: new ProductAction(page),
+          
         };
         await use(appAction);
     },
