@@ -17,12 +17,12 @@
   },
   "homepage": "https://github.com/LALIT1804-NEWVISION/QKart#readme",
   "devDependencies": {
+    "@faker-js/faker": "^10.4.0",
     "@playwright/test": "^1.60.0",
     "@types/node": "^25.9.3",
     "allure-playwright": "^3.10.0"
   },
   "dependencies": {
-    "@faker-js/faker": "^10.4.0",
     "playwright": "^1.60.0"
   }
 }

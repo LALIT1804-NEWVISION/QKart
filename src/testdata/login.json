@@ -2,8 +2,8 @@
     "BaseURL": "https://crio-qkart-frontend-qa.vercel.app",
 
     "LoginDetails" : {
-        "Username" : "Dummy123",
-        "Password" : "Dummy@123"
+        "Username" : "Alexandrea35019",
+        "Password" : "Test@35019"
     },
     "incorrectLoginDetails" : {
         "Username" : "Dummy124",
