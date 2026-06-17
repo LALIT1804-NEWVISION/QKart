@@ -1,0 +1,729 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: Qkart\productListing\productlisting.spec.ts >> TC-004-Product Listing: Product cards render in flex-wrap layout without overflow or overlap
+- Location: tests\Qkart\productListing\productlisting.spec.ts:19:6
+
+# Error details
+
+```
+Error: expect(locator).toHaveScreenshot(expected) failed
+
+Locator: locator('//div[@class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-1msksyp"]')
+  683919 pixels (ratio 0.39 of all image pixels) are different.
+
+  Snapshot: product-grid-layout.png
+
+Call log:
+  - Expect "toHaveScreenshot(product-grid-layout.png)" with timeout 5000ms
+    - verifying given screenshot expectation
+  - waiting for locator('//div[@class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-1msksyp"]')
+    - locator resolved to <div class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-1msksyp">…</div>
+  - taking element screenshot
+    - disabled all CSS animations
+  - waiting for fonts to load...
+  - fonts loaded
+  - attempting scroll into view action
+    - waiting for element to be stable
+  - 683919 pixels (ratio 0.39 of all image pixels) are different.
+  - waiting 100ms before taking screenshot
+  - waiting for locator('//div[@class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-1msksyp"]')
+    - locator resolved to <div class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-1msksyp">…</div>
+  - taking element screenshot
+    - disabled all CSS animations
+  - waiting for fonts to load...
+  - fonts loaded
+  - attempting scroll into view action
+    - waiting for element to be stable
+  - captured a stable screenshot
+  - 683919 pixels (ratio 0.39 of all image pixels) are different.
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e4]:
+  - generic [ref=e5]:
+    - link "QKart-icon" [ref=e7] [cursor=pointer]:
+      - /url: /
+      - img "QKart-icon" [ref=e8]
+    - generic [ref=e10]:
+      - textbox "Search for items/categories" [ref=e11]
+      - img [ref=e13]
+      - group
+    - generic [ref=e15]:
+      - button "Login" [ref=e16] [cursor=pointer]: Login
+      - button "Register" [ref=e17] [cursor=pointer]: Register
+  - generic [ref=e19]:
+    - paragraph [ref=e21]: India’ s FASTEST DELIVERY to your door step
+    - generic [ref=e22]:
+      - generic [ref=e24]:
+        - img "Stylecon 9 Seater RHS Sofa Set" [ref=e25]
+        - generic [ref=e26]:
+          - paragraph [ref=e27]: Stylecon 9 Seater RHS Sofa Set
+          - paragraph [ref=e28]: $650
+          - img "3 Stars":
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+        - button "Add to cart" [ref=e30] [cursor=pointer]:
+          - img [ref=e32]
+          - text: Add to cart
+      - generic [ref=e35]:
+        - img "Thinking, Fast and Slow" [ref=e36]
+        - generic [ref=e37]:
+          - paragraph [ref=e38]: Thinking, Fast and Slow
+          - paragraph [ref=e39]: $15
+          - img "5 Stars":
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+        - button "Add to cart" [ref=e41] [cursor=pointer]:
+          - img [ref=e43]
+          - text: Add to cart
+      - generic [ref=e46]:
+        - img "YONEX Smash Badminton Racquet" [ref=e47]
+        - generic [ref=e48]:
+          - paragraph [ref=e49]: YONEX Smash Badminton Racquet
+          - paragraph [ref=e50]: $100
+          - img "5 Stars":
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+        - button "Add to cart" [ref=e52] [cursor=pointer]:
+          - img [ref=e54]
+          - text: Add to cart
+      - generic [ref=e57]:
+        - img "Roadster Mens Running Shoes" [ref=e58]
+        - generic [ref=e59]:
+          - paragraph [ref=e60]: Roadster Mens Running Shoes
+          - paragraph [ref=e61]: $30
+          - img "5 Stars":
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+          - button "Size chart" [ref=e62] [cursor=pointer]: Size chart
+        - generic [ref=e63]:
+          - generic [ref=e64]:
+            - generic [ref=e65]: Size
+            - generic [ref=e66]:
+              - combobox "Size Size" [ref=e67] [cursor=pointer]:
+                - option "6" [selected]
+                - option "7"
+                - option "8"
+                - option "9"
+                - option "10"
+              - img
+          - button "Add to cart" [ref=e68] [cursor=pointer]:
+            - img [ref=e70]
+            - text: Add to cart
+      - generic [ref=e73]:
+        - img "Nike Mens Running Shoes" [ref=e74]
+        - generic [ref=e75]:
+          - paragraph [ref=e76]: Nike Mens Running Shoes
+          - paragraph [ref=e77]: $80
+          - img "5 Stars":
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+          - button "Size chart" [ref=e78] [cursor=pointer]: Size chart
+        - generic [ref=e79]:
+          - generic [ref=e80]:
+            - generic [ref=e81]: Size
+            - generic [ref=e82]:
+              - combobox [ref=e83] [cursor=pointer]:
+                - option "6" [selected]
+                - option "7"
+                - option "8"
+                - option "9"
+                - option "10"
+              - img
+          - button "Add to cart" [ref=e84] [cursor=pointer]:
+            - img [ref=e86]
+            - text: Add to cart
+      - generic [ref=e89]:
+        - img "Tan Leatherette Weekender Duffle" [ref=e90]
+        - generic [ref=e91]:
+          - paragraph [ref=e92]: Tan Leatherette Weekender Duffle
+          - paragraph [ref=e93]: $150
+          - img "4 Stars":
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+        - button "Add to cart" [ref=e95] [cursor=pointer]:
+          - img [ref=e97]
+          - text: Add to cart
+      - generic [ref=e100]:
+        - img "Yarine Floor Lamp" [ref=e101]
+        - generic [ref=e102]:
+          - paragraph [ref=e103]: Yarine Floor Lamp
+          - paragraph [ref=e104]: $30
+          - img "5 Stars":
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+        - button "Add to cart" [ref=e106] [cursor=pointer]:
+          - img [ref=e108]
+          - text: Add to cart
+      - generic [ref=e111]:
+        - img "Xtend Smart Watch" [ref=e112]
+        - generic [ref=e113]:
+          - paragraph [ref=e114]: Xtend Smart Watch
+          - paragraph [ref=e115]: $30
+          - img "5 Stars":
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+        - button "Add to cart" [ref=e117] [cursor=pointer]:
+          - img [ref=e119]
+          - text: Add to cart
+      - generic [ref=e122]:
+        - img "Plastic Balls" [ref=e123]
+        - generic [ref=e124]:
+          - paragraph [ref=e125]: Plastic Balls
+          - paragraph [ref=e126]: $30
+          - img "3 Stars":
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+        - button "Add to cart" [ref=e128] [cursor=pointer]:
+          - img [ref=e130]
+          - text: Add to cart
+      - generic [ref=e133]:
+        - img "Kindle" [ref=e134]
+        - generic [ref=e135]:
+          - paragraph [ref=e136]: Kindle
+          - paragraph [ref=e137]: $30
+          - img "5 Stars":
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+        - button "Add to cart" [ref=e139] [cursor=pointer]:
+          - img [ref=e141]
+          - text: Add to cart
+      - generic [ref=e144]:
+        - img "Connector" [ref=e145]
+        - generic [ref=e146]:
+          - paragraph [ref=e147]: Connector
+          - paragraph [ref=e148]: $80
+          - img "5 Stars":
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+        - button "Add to cart" [ref=e150] [cursor=pointer]:
+          - img [ref=e152]
+          - text: Add to cart
+      - generic [ref=e155]:
+        - img "Jenga" [ref=e156]
+        - generic [ref=e157]:
+          - paragraph [ref=e158]: Jenga
+          - paragraph [ref=e159]: $120
+          - img "5 Stars":
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+              - generic:
+                - generic:
+                  - img
+        - button "Add to cart" [ref=e161] [cursor=pointer]:
+          - img [ref=e163]
+          - text: Add to cart
+  - navigation "pagination navigation" [ref=e166]:
+    - list [ref=e167]:
+      - listitem [ref=e168]:
+        - button "Go to previous page" [disabled]:
+          - img
+      - listitem [ref=e169]:
+        - button "page 1" [ref=e170] [cursor=pointer]: "1"
+      - listitem [ref=e171]:
+        - button "Go to page 2" [ref=e172] [cursor=pointer]: "2"
+      - listitem [ref=e173]:
+        - button "Go to next page" [ref=e174] [cursor=pointer]:
+          - img [ref=e175]
+  - generic [ref=e177]:
+    - img "QKart-icon" [ref=e179]
+    - paragraph [ref=e180]: QKart is your one stop solution to the buy the latest trending items with India 's Fastest Delivery to your doorstep
+    - generic [ref=e181]:
+      - paragraph [ref=e182] [cursor=pointer]:
+        - link "Privacy policy" [ref=e183]:
+          - /url: privacy-policy
+      - paragraph [ref=e184] [cursor=pointer]:
+        - link "About us" [ref=e185]:
+          - /url: aboutus
+      - paragraph [ref=e186] [cursor=pointer]: Contact us
+      - paragraph [ref=e187] [cursor=pointer]:
+        - link "Terms of Service" [ref=e188]:
+          - /url: terms-of-service
+```
+
+# Test source
+
+```ts
+  1  | import {Page, expect} from "@playwright/test";
+  2  | import {ProductPage} from "../../pages/ProductListingPage/productPage";
+  3  | import loginData from '../../testdata/login.json';
+  4  | 
+  5  | export class ProductAction {
+  6  |     readonly productPage: ProductPage;
+  7  | 
+  8  |     constructor(page: Page) {
+  9  |         this.productPage = new ProductPage(page);
+  10 |     }
+  11 | 
+  12 |     async verifyPageLoadState() {
+  13 |         await this.productPage.page.waitForLoadState("load");
+  14 |         await expect(this.productPage.homePageLogo).toBeVisible();
+  15 |     }
+  16 | 
+  17 |     async verifyLoginButtonVisibiltyAndNavigation() {
+  18 |         await expect(this.productPage.loginButton).toBeVisible();
+  19 |         await this.productPage.loginButton.click();
+  20 |         await expect(this.productPage.page).toHaveURL(/login/);
+  21 |         await this.productPage.page.goBack();
+  22 |     }
+  23 | 
+  24 |     async verifyRegisterButtonVisibiltyAndNavigation() {
+  25 |         await expect(this.productPage.registrationButton).toBeVisible();
+  26 |         await this.productPage.registrationButton.click();
+  27 |         await expect(this.productPage.page).toHaveURL(/register/);
+  28 |     }
+  29 | 
+  30 |     async userLogin() {
+  31 |         await this.productPage.loginButton.click();
+  32 |         await this.productPage.usernameField.fill(loginData.LoginDetails.Username);
+  33 |         await this.productPage.passwordField.fill(loginData.LoginDetails.Password);
+  34 |         await this.productPage.loginUserButton.click();
+  35 |     }
+  36 | 
+  37 |     async verifyAppAfterLogin() {
+  38 |         await expect(this.productPage.page).toHaveURL(loginData.BaseURL);
+  39 |         await expect(this.productPage.headerUsername).toBeVisible();
+  40 |     }
+  41 | 
+  42 |     async verifyHomePageBannerVisibilty() {
+  43 |         await expect(this.productPage.banner).toBeVisible();
+  44 |     }
+  45 | 
+  46 |     async verifyBannerTitleVisibilty() {
+  47 |         await expect(this.productPage.bannerTitle).toBeVisible();
+  48 |     }
+  49 | 
+  50 |     async waitForProductGridAndCardToLoad() {
+  51 |         const productGrid = this.productPage.productGrid;
+  52 |         await expect(productGrid).toBeVisible({ timeout: 10000 });
+  53 | 
+  54 |         const productCards = this.productPage.productGrid;
+  55 |         await expect(productCards.first()).toBeVisible({ timeout: 10000 });
+  56 | 
+  57 |         const cardCount = await productCards.count();
+  58 |         expect(cardCount).toBeGreaterThan(0);
+  59 |     }
+  60 | 
+  61 |     async verifyFlexLayout() {
+  62 |         const gridStyles = await this.productPage.productGrid.evaluate((el) => {
+  63 |         const styles = window.getComputedStyle(el);
+  64 |         return {
+  65 |             display: styles.display,
+  66 |             flexWrap: styles.flexWrap,
+  67 |         };
+  68 |         });
+  69 | 
+  70 |         expect(gridStyles.display).toBe('flex');
+  71 |         expect(gridStyles.flexWrap).toBe('wrap');
+  72 |     }
+  73 | 
+  74 |     async verifyLayoutVisually() {
+> 75 |         await expect(this.productPage.productGrid).toHaveScreenshot('product-grid-layout.png');
+     |                                                    ^ Error: expect(locator).toHaveScreenshot(expected) failed
+  76 |     }
+  77 | 
+  78 |     
+  79 | }
+```

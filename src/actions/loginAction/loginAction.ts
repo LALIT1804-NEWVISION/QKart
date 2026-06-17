@@ -55,6 +55,14 @@ export class loginAction
         await this.loginPage.button.click();
 
         // verify user should login successfully
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+       await expect(this.loginPage.loginValidation).toBeVisible();
+        // verify user credential should be correct
+        //await expect(this.loginPage.userCredentialValidation).toBeVisible();
+=======
+>>>>>>> Checkout-functionality
         await expect(this.loginPage.loginSuccessMessage).toHaveText('Logged in successfully');
         
         // verify user credential should be correct
@@ -201,6 +209,10 @@ export class loginAction
         await expect(this.loginPage.loginSuccessMessage).toBeVisible();
      
 
+<<<<<<< HEAD
+=======
+>>>>>>> 78868000af4b81d4b1c88f9e47c046a2018f3421
+>>>>>>> Checkout-functionality
     }
 
 }

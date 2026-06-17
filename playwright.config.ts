@@ -29,6 +29,11 @@ export default defineConfig({
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
+    viewport: { width: 1280, height: 720 },
+    launchOptions: {
+        args: ['--force-device-scale-factor=1']
+    },
+
     /* Base URL to use in actions like `await page.goto('')`. */
     // baseURL: 'http://localhost:3000',
 

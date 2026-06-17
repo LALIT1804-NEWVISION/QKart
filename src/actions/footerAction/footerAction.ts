@@ -11,7 +11,9 @@ export class FooterAction {
 
         this.footerPage = new FooterPage(page);
     }
-
+    async verifyQKartLogoVisible() {
+        await expect(this.footerPage.qKartLogo).toBeVisible();
+    }
     async verifyPrivacyPolicyFooterLink() {
 
         const [newTab] = await Promise.all([
