@@ -1,0 +1,170 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: checkout.spec.ts >> TC006_Verify Address is deleted successfully
+- Location: tests\checkout.spec.ts:58:5
+
+# Error details
+
+```
+Error: expect(received).toBe(expected) // Object.is equality
+
+Expected: 0
+Received: 1
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - generic [ref=e4]:
+    - link "QKart-icon" [ref=e6] [cursor=pointer]:
+      - /url: /
+      - img "QKart-icon" [ref=e7]
+    - generic [ref=e8]:
+      - img "Alexandrea35019" [ref=e10]
+      - paragraph [ref=e11]: Alexandrea35019
+      - button "Logout" [ref=e12] [cursor=pointer]: Logout
+  - generic [ref=e13]:
+    - generic [ref=e15]:
+      - heading "Shipping" [level=4] [ref=e16]
+      - paragraph [ref=e17]: Manage all the shipping addresses you want.This way you won 't have to enter the shipping address manually with every order.Select the address you want to get your order delivered.
+      - separator [ref=e18]
+      - paragraph [ref=e20]: No addresses found for this account.Please add one to proceed
+      - button "Add new address" [ref=e21] [cursor=pointer]: Add new address
+      - heading "Payment" [level=4] [ref=e22]
+      - paragraph [ref=e23]: Payment Method
+      - separator [ref=e24]
+      - generic [ref=e25]:
+        - paragraph [ref=e26]: Wallet
+        - paragraph [ref=e27]: Pay $ 30 of available $ 4910
+      - button "PLACE ORDER" [disabled]:
+        - generic:
+          - img
+        - text: PLACE ORDER
+    - generic [ref=e28]:
+      - generic [ref=e29]:
+        - generic [ref=e31]:
+          - img "Roadster Mens Running Shoes" [ref=e33]
+          - generic [ref=e34]:
+            - generic [ref=e35]: Roadster Mens Running Shoes
+            - generic [ref=e36]:
+              - generic [ref=e37]: "Qty: 1"
+              - generic [ref=e38]: $30
+        - generic [ref=e39]:
+          - generic [ref=e40]: Order total
+          - generic [ref=e41]: $30
+      - generic [ref=e42]:
+        - heading "Order Details" [level=2] [ref=e43]
+        - generic [ref=e44]:
+          - paragraph [ref=e45]: Products
+          - paragraph [ref=e46]: "1"
+        - generic [ref=e47]:
+          - paragraph [ref=e48]: Subtotal
+          - paragraph [ref=e49]: $30
+        - generic [ref=e50]:
+          - paragraph [ref=e51]: Shipping Charges
+          - paragraph [ref=e52]: $0
+        - generic [ref=e53]:
+          - paragraph [ref=e54]: Total
+          - paragraph [ref=e55]: $30
+  - generic [ref=e56]:
+    - img "QKart-icon" [ref=e58]
+    - paragraph [ref=e59]: QKart is your one stop solution to the buy the latest trending items with India 's Fastest Delivery to your doorstep
+    - generic [ref=e60]:
+      - paragraph [ref=e61] [cursor=pointer]:
+        - link "Privacy policy" [ref=e62]:
+          - /url: privacy-policy
+      - paragraph [ref=e63] [cursor=pointer]:
+        - link "About us" [ref=e64]:
+          - /url: aboutus
+      - paragraph [ref=e65] [cursor=pointer]: Contact us
+      - paragraph [ref=e66] [cursor=pointer]:
+        - link "Terms of Service" [ref=e67]:
+          - /url: terms-of-service
+```
+
+# Test source
+
+```ts
+  1  | import {CheckoutPage} from "../pages/checkoutPage";
+  2  | import{Page,expect} from "@playwright/test";
+  3  | 
+  4  | export class CheckoutAction{
+  5  |     page:Page;
+  6  |     checkoutPage:CheckoutPage;
+  7  | 
+  8  |     constructor(page:Page){
+  9  |         this.page=page;
+  10 |         this.checkoutPage=new CheckoutPage(page);
+  11 |     }
+  12 | 
+  13 |     async addNewAddress(address:string){
+  14 |         await this.checkoutPage.addNewAddressBtn.click();
+  15 |         await this.checkoutPage.addressTextBox.fill(address);
+  16 |         await this.checkoutPage.addBtn.click();
+  17 |     }
+  18 | 
+  19 |     async verifyAddressAdded(address:string){
+  20 |         await expect(this.page.getByText(address).first()).toBeVisible();
+  21 |     }
+  22 | 
+  23 |     async selectAddress(address:string){
+  24 |         await this.checkoutPage.selectAddress(address).first().click();
+  25 |     }
+  26 | 
+  27 |     async VerifyAddressSelected(address:string){
+  28 |         await expect(this.checkoutPage.selectAddress(address).first()).toBeVisible();
+  29 |     }
+  30 | 
+  31 |     async placeOrder(){
+  32 |         await Promise.all([
+  33 |         this.page.waitForLoadState("networkidle"),
+  34 |             this.checkoutPage.placeOrderBtn.click()
+  35 |         ]);
+  36 |     
+  37 |         await this.checkoutPage.placeOrderBtn.click();
+  38 |     }
+  39 | 
+  40 |     async verifyOrderSuccess(){
+  41 |         await expect(this.checkoutPage.successMsg).toBeVisible();
+  42 |     }
+  43 | 
+  44 |      async navigateToCheckoutcart(){
+  45 |         await this.page.goto("/checkout");
+  46 |     }
+  47 |     
+  48 |     async verifyPlaceOrderDisabled(){
+  49 |         await expect(this.checkoutPage.placeOrderBtn).toBeDisabled();
+  50 |     }
+  51 | 
+  52 | 
+  53 |     async verifyCartIsEmpty(){
+  54 |         await expect(this.checkoutPage.emptyCartMessage).toBeVisible();
+  55 |     }
+  56 | 
+  57 |    
+  58 |     async deleteAddress(){
+  59 |         await this.checkoutPage.deleteAddressButton(0).click();
+  60 |     }
+  61 | 
+  62 |     async verifyAddressDeleted(countBefore:number){
+  63 |         const countAfter=await this.checkoutPage.addressList().count();
+> 64 |         expect(countAfter).toBe(countBefore - 1);
+     |                            ^ Error: expect(received).toBe(expected) // Object.is equality
+  65 |     }
+  66 |         
+  67 |     async verifyMultipleAddressAdded(){
+  68 |         await expect(this.checkoutPage.addressList()).toHaveCount(2);
+  69 |     }
+  70 | 
+  71 |     async verifyValidationMessageForEmptyAddress(){
+  72 |         await expect(this.checkoutPage.emptyAddressMessage).toBeVisible();
+  73 |     }
+  74 | }
+```
