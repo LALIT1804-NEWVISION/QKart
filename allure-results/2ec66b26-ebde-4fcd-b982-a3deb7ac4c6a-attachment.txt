@@ -1,0 +1,1 @@
+Test Name: TC 048: Decrease quantity from 1 in Checkout

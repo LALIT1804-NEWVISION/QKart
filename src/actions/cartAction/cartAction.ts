@@ -56,9 +56,7 @@ export class CartAction {
     }
 
     async navigateToCheckout() {
-        const baseUrl = this.page.url().split('/').slice(0, 3).join('/');
-        await this.page.goto(`${baseUrl}/checkout`);
-        await this.page.waitForLoadState('networkidle');
+        await expect(this.cartPage.checkoutButton).toBeVisible();
     }
 
     async decreaseItemQuantity(itemIndex: number = 0) {
