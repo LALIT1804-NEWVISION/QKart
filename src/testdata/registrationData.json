@@ -2,11 +2,6 @@
   "baseUrl": "https://crio-qkart-frontend-qa.vercel.app/",
   "generatedUserData": [
     {
-<<<<<<< HEAD
-      "username": "Betty90416",
-      "password": "Test@90416",
-      "confirmpassword": "Test@90416"
-=======
       "username": "Mateo77811",
       "password": "Test@77811",
       "confirmpassword": "Test@77811"
@@ -25,7 +20,6 @@
       "username": "Crystal57742",
       "password": "Test@57742",
       "confirmpassword": "Test@57742"
->>>>>>> 78868000af4b81d4b1c88f9e47c046a2018f3421
     }
   ]
 }
