@@ -22,7 +22,6 @@ test("TC-031-Product Listing: Product cards render in flex-wrap layout without o
     await appAction.product.verifyLayoutVisually();
 })
 
-// Arvind Work
 test("TC-032-Product Listing Page: First Product Image Visibility Verification", async ({ appAction }) => {
     await appAction.product.verifyPageLoadState();
     await appAction.product.verifyLayoutImageVisible();

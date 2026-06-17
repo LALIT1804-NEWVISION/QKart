@@ -75,7 +75,6 @@ export class ProductAction {
         await expect(this.productPage.productGrid).toHaveScreenshot('product-grid-layout.png');
     }
 
-     // Arvind Work
     async verifyLayoutImageVisible(): Promise<void> {
     await expect(this.productPage.layoutImage).toBeVisible();
 
