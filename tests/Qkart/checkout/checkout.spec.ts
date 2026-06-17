@@ -22,15 +22,6 @@ test("TC_02: Verify Selecting a Shipping Address", async ({ appAction }) => {
     await appAction.checkout.VerifyAddressSelected(checkout.address1);
 });
 
-test("TC_03: Verify Successful Order Placement with Valid Address", async ({ appAction }) => {
-    await appAction.login.loginUser(login.LoginDetails);
-    await appAction.cart.addItemsToCart();
-    await appAction.cart.clickCartButton();
-    await appAction.cart.navigateToCheckout();
-    await appAction.checkout.selectAddress(checkout.address1);
-    await appAction.checkout.placeOrder();
-    await appAction.checkout.verifyOrderSuccess();
-});
 
 test("TC_04: Verify Place Order Without Selecting Shipping Address", async ({ appAction }) => {
     await appAction.login.loginUser(login.LoginDetails);

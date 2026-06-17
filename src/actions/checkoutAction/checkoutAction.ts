@@ -1,7 +1,6 @@
 import {CheckoutPage} from "../../pages/checkout/checkoutPage";
 import{Page,expect} from "@playwright/test";
-import checkout from "../testdata/checkout.json";
-
+import checkout from "../../../src/testdata/checkout.json";
 
 export class CheckoutAction{
     page:Page;
