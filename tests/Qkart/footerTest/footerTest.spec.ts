@@ -6,9 +6,9 @@ test.describe("QKart Footer Links Validation", () => {
     test("TC_001 Verify successful login and redirection to home page", async ({ appAction }) => {
         await test.step("Login with valid credentials", async () => {
             await appAction.login.loginUser(loginData.LoginDetails);
-            //await appAction.login.login(loginData.LoginDetails.Username, loginData.LoginDetails.Password);
         });
        
+    });
  
     test("TC_002 Verify QKart logo is visible after login", async ({ appAction }) => {
         await appAction.login.loginUser(loginData.LoginDetails);
