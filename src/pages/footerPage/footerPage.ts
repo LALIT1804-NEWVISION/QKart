@@ -11,6 +11,7 @@ export class FooterPage {
     readonly emailField: Locator;
     readonly messageField: Locator;
     readonly contactNowButton: Locator;
+    readonly qKartLogo: Locator;
 
     constructor(page: Page) {
 
@@ -23,5 +24,6 @@ export class FooterPage {
         this.emailField = page.getByRole("textbox", { name: "Email" });
         this.messageField = page.getByRole("textbox", { name: "Message" });
         this.contactNowButton = page.getByRole("button", { name: /contact now/i });
+        this.qKartLogo = page.getByRole("link", { name: "QKart" });
     }
 }
