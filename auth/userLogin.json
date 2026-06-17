@@ -1,0 +1,22 @@
+{
+  "cookies": [],
+  "origins": [
+    {
+      "origin": "https://crio-qkart-frontend-qa.vercel.app",
+      "localStorage": [
+        {
+          "name": "username",
+          "value": "Dummy123"
+        },
+        {
+          "name": "token",
+          "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkR1bW15MTIzIiwiaWF0IjoxNzgxNjc4ODg4LCJleHAiOjE3ODE3MDA0ODh9.q8fzdiseBeuBeRCUXPduiNeHTAhu4UKCcK3ESNDwNAU"
+        },
+        {
+          "name": "balance",
+          "value": "30"
+        }
+      ]
+    }
+  ]
+}

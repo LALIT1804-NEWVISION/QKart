@@ -1,7 +1,7 @@
 import { test, expect } from "../../../src/custom_fixture/fixture";
 import loginData from "../../../src/testdata/login.json";
 
-
+//test.use({ storageState: { cookies: [], origins: [] } });
 test("Login_01 Verify that a user can log in with a valid username and password", async({appAction}) => 
     {
         // User Should login with valid credential and Validate the login successfully
@@ -65,4 +65,3 @@ test("Login_09 Verify login with leading spaces in username and password",async 
     console.log("Logging in with leading spaces in username and password", loginData.SpaceCredentials);
     await appAction.login.loginSpaceUser(loginData.SpaceCredentials)
 })
-

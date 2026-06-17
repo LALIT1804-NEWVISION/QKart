@@ -1,7 +1,6 @@
 import {Page, expect} from "@playwright/test";
 import {loginPages} from "../../pages/loginPage/loginPage";
 
-
 type LoginDetails = 
 {
     Username : string,

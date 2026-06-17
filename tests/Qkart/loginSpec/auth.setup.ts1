@@ -1,0 +1,12 @@
+import { test as setup, expect } from "@playwright/test";
+ 
+setup('Login Authentication', async({page}) => {
+    await page.goto('https://crio-qkart-frontend-qa.vercel.app');
+    await page.locator('//button[contains(text() , "Login")]').click();
+    await page.locator('//input[contains(@placeholder,"Enter Username")]').fill('Dummy123');
+    await page.locator('//input[contains(@placeholder,"Enter a password")]').fill('Dummy@123');
+    await page.locator('//button[contains(text(), "Login to QKart")]').click();
+    await expect(page.locator('//p[contains(text(), "Dummy123")]')).toBeVisible();
+
+    await page.context().storageState({path: 'auth/userLogin.json'});
+});
