@@ -1,0 +1,1 @@
+Test Name: TC 045: Verify Checkout total calculation
