@@ -39,7 +39,7 @@ test("TC_04: Verify Place Order Without Selecting Shipping Address", async ({ ap
 
 //Test cases by Goury Vishwakarma
 
-test.only("TC005_Verify Cart is cleared After Successfully Order Placement",async({appAction, page})=>{
+test("TC005_Verify Cart is cleared After Successfully Order Placement",async({appAction, page})=>{
     await appAction.login.loginUser(login.LoginDetails);
     await appAction.cart.addItemsToCart();
     await appAction.cart.navigateToCheckout();
