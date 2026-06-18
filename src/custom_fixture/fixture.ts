@@ -7,6 +7,7 @@ import RegistrationData from "../testdata/registrationData.json";
 import { CartAction } from "../actions/cartAction/cartAction";
 import { SearchAction } from '../actions/searchAction/searchAction';
 import { ProductAction } from '../actions/ProductListing/productAction';
+import { CheckoutAction } from "../actions/checkoutAction/checkoutAction";
 
 
 
@@ -17,7 +18,7 @@ type AppActions = {
     cart: CartAction;
     search: SearchAction
     product: ProductAction;
-
+    checkout: CheckoutAction;
 
    
 
@@ -49,7 +50,8 @@ export const test = base.extend<Fixtures>({
             cart: new CartAction(page),
             search: new SearchAction(page),
             product: new ProductAction(page),
-          
+           checkout: new CheckoutAction(page)
+
         };
         await use(appAction);
     },
