@@ -25,6 +25,11 @@
       "username": "Hannah82576",
       "password": "Test@82576",
       "confirmpassword": "Test@82576"
+    },
+    {
+      "username": "Emilio45025",
+      "password": "Test@45025",
+      "confirmpassword": "Test@45025"
     }
   ]
 }
